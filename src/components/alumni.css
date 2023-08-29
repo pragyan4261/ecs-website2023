@@ -1,0 +1,23 @@
+  .alumniSwiper {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  .alumniSwiper .swiper-slide {
+    filter: blur(3px);
+    transition: ease 500ms;
+    margin: 0 auto;
+    margin-top: 0%;
+    margin-bottom: 1rem;
+    scale: 0.5;
+  }
+  .alumniSwiper .swiper-slide-active + .swiper-slide {
+    filter: blur(0px);
+    scale: 2;
+    transition: ease 500ms;
+    margin: 0 auto;
+    margin-top: 0;
+  }
+  .alumniSwiper .swiper-slide-active + .swiper-slide div div {
+    background-color: #bcdeec;
+    z-index: 0;
+  }
