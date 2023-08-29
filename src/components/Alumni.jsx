@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/zoom";
 // import { useState, useEffect, useRef } from "react";
 import alumni from "../images/alumni.svg";
-// import "./alumni.css";
+import "./alumni.css";
 import { Zoom, Autoplay, Pagination, Navigation } from "swiper/modules";
 const Carousel = () => {
   const imgs = [
@@ -28,7 +28,7 @@ const Carousel = () => {
       <Swiper
         autoplay={{
           delay: 3000,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
@@ -37,7 +37,7 @@ const Carousel = () => {
         modules={[Zoom, Autoplay, Pagination, Navigation]}
         spacebetween={100}
         slidesPerView={3}
-        loop={false}
+        loop={true}
         className="alumniSwiper"
       >
         <div className="slider">
