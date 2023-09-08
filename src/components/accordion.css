@@ -1,0 +1,18 @@
+/* .accordion-item input[type="checkbox"] {
+    display: none;
+} */
+
+/* .accordion-item .accordion-content {
+    display: none;
+}
+
+.accordion-item input:checked ~ .accordion-content {
+    display: block;
+} */
+.accordion-content{
+    display: none;
+}
+
+.accordion-item:active .accordion-content {
+    display: block;
+}
