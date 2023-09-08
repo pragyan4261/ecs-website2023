@@ -12,7 +12,7 @@ const Events = () => {
     ];
     return (
         <div>
-            <Navbar home='inactive' events='inactive' developers='inactive' about='inactive' feed='inactive' members='active' />
+            <Navbar home='inactive' events='active' developers='inactive' about='inactive' feed='inactive' members='inactive' />
             <EventsHero />
             {events.map((item) => <EventsCard name={item.name} desc={item.desc} photo={item.photo} order={item.order} />)}
             <Footer />
