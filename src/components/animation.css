@@ -1,7 +1,8 @@
-#hero{
+#hero {
     position: relative;
 }
-#hero::after{
+
+#hero::after {
     white-space: nowrap;
     overflow: hidden;
     margin: 0 auto;
@@ -12,19 +13,22 @@
     color: rgb(212, 212, 132);
     background-color: rgb(21, 99, 235);
     width: 100%;
-    animation: typing 1.2s steps(9) 1s  normal both,
-                line 1s steps(9) infinite;
+    animation: typing 1.2s steps(9) 1s normal both,
+        line 1s steps(9) infinite;
 }
-@keyframes typing{
-    from{
+
+@keyframes typing {
+    from {
         width: 100%;
     }
-    to{
+
+    to {
         width: 0%;
     }
 }
+
 @keyframes line {
-    50%{
+    50% {
         color: transparent;
     }
 }

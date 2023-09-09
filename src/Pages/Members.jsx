@@ -214,11 +214,11 @@ const Members = () => {
       <div className='flex flex-wrap justify-around items-center'>
         {ecs_heads.map((item) => <PersonCard name={item.name} img={item.img} designation={item.designation} fb={item.fb} insta={item.insta} linkedin={item.linkedin} />)}
       </div>
-      <h1 className='text-[2rem]'>SENIOR MEMBERS</h1>
+      <h1 className='text-[2rem] text-[#ffffff]'>SENIOR MEMBERS</h1>
       <div className='flex flex-wrap justify-around items-center'>
         {domain_heads.map((item) => <PersonCard name={item.name} img={item.img} designation={item.designation} fb={item.fb} insta={item.insta} linkedin={item.linkedin} />)}
       </div>
-      <h1 className='text-[2rem]'>JUNIOR MEMBERS</h1>
+      <h1 className='text-[2rem] text-[#ffffff]'>JUNIOR MEMBERS</h1>
       <div className='flex flex-wrap justify-around items-center'>
         {junior_members.map((item) => <PersonCard name={item.name} img={item.img} designation={item.designation} fb={item.fb} insta={item.insta} linkedin={item.linkedin} />)}
       </div>
