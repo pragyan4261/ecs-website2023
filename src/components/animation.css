@@ -10,7 +10,7 @@
     position: absolute;
     right: 0;
     color: rgb(212, 212, 132);
-    background-color: rgb(21, 99, 235);
+    background-color: rgb(53, 255, 255);
     width: 100%;
     animation: typing 1.2s steps(9) 1s  normal both,
                 line 1s steps(9) infinite;

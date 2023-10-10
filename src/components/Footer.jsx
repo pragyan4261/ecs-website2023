@@ -28,14 +28,14 @@ const Footer = () => {
       <div className='invisible h-0 flex flex-col sm:visible sm:h-full sm:space-y-5 sm:relative sm:-top-10 sm:text-xl'>
         <Link to='/'>Home</Link>
         <Link to='/resourcehub'>Resource Hub</Link>
-        <Link to=''>Events</Link>
+        <Link to='/events'>Events</Link>
         <Link to=''>Gallery</Link>
       </div>
       <div className='invisible h-0 flex flex-col sm:visible sm:h-full sm:space-y-5 sm:relative sm:-top-10 sm:text-xl'>
         <Link to='/members'>Members</Link>
         <Link to='/developers'>Developers</Link>
         <Link to='/about'>About Us</Link>
-        <Link to=''>FAQ</Link>
+        <Link to='/about'>FAQ</Link>
       </div>
       </div>
       <div className='flex flex-col space-y-5 justify-center items-center sm:w-[80%]'>

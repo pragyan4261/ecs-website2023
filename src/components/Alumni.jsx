@@ -2,9 +2,11 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/zoom";
+// import PersonCard from "../cards/PersonCard";
 // import { useState, useEffect, useRef } from "react";
-import alumni from "../images/alumni.svg";
+// import alumni from "../images/alumni.svg";
 import "./alumni.css";
+import "./styles.css"
 import { Zoom, Autoplay, Pagination, Navigation } from "swiper/modules";
 const Carousel = () => {
   const imgs = [
@@ -15,6 +17,47 @@ const Carousel = () => {
     { sl: 5, name: "Alumni5", designation: "designation5", id: "card-5" },
     { sl: 6, name: "Alumni6", designation: "designation6", id: "card-6" },
   ];
+  // const imgs = [{
+  //   img: 'https://res.cloudinary.com/dhry5xscm/image/upload/v1693600068/alumni_jidxwm.svg',
+  //   name: 'Person',
+  //   designation: 'designation',
+  //   fb: '',
+  //   insta: '',
+  //   linkedin: ''
+  // },
+  // {
+  //   img: 'https://res.cloudinary.com/dhry5xscm/image/upload/v1693600068/alumni_jidxwm.svg',
+  //   name: 'Person',
+  //   designation: 'designation',
+  //   fb: '',
+  //   insta: '',
+  //   linkedin: ''
+  // },
+  // {
+  //   img: 'https://res.cloudinary.com/dhry5xscm/image/upload/v1693600068/alumni_jidxwm.svg',
+  //   name: 'Person',
+  //   designation: 'designation',
+  //   fb: '',
+  //   insta: '',
+  //   linkedin: ''
+  // },
+  // {
+  //   img: 'https://res.cloudinary.com/dhry5xscm/image/upload/v1693600068/alumni_jidxwm.svg',
+  //   name: 'Person',
+  //   designation: 'designation',
+  //   fb: '',
+  //   insta: '',
+  //   linkedin: ''
+  // },
+  // {
+  //   img: 'https://res.cloudinary.com/dhry5xscm/image/upload/v1693600068/alumni_jidxwm.svg',
+  //   name: 'Person',
+  //   designation: 'designation',
+  //   fb: '',
+  //   insta: '',
+  //   linkedin: ''
+  // }
+  // ];
 
   return (
     <div
@@ -55,30 +98,33 @@ const Carousel = () => {
                 <SwiperSlide key={index}>
                   <div
                     id={item.id}
-                    className="h-200 w-100 rounded-md"
+                    className="w-100 rounded-[1rem]"
                     key={index}
                     style={{
                       display: "inline-block",
                       position: "relative",
                       top: "0rem",
+                      backgroundColor:'transparent'
                     }}
                   >
                     <img
                       style={{
-                        position: "relative",
-                        top: "2rem",
                         zIndex: "2",
+                        border:'0px solid transparent',
+                        borderRadius:"100%",
+                        height:'13rem',
+                        width:'13rem',
+                        margin:'auto'
                       }}
-                      className="h-40 w-40 rounded-full"
-                      src={alumni}
+                      src='https://res.cloudinary.com/dhry5xscm/image/upload/v1693600068/alumni_jidxwm.svg'
                      alt=""/>
                     <div
-                      style={{ zIndex: "-2" }}
-                      className="flex flex-col rounded-[1rem] p-3"
+                      style={{position:'relative',top:'-4rem',lineHeight:'2.5rem', zIndex: "-2",textTranform: 'uppercase', backgroundColor: 'rgba(255, 255, 255, 0.45)', border: '0px solid transparent', borderRadius: '1.5rem'}}
+                      className="flex flex-col rounded-[2rem] pt-[2rem] pb-[2rem] pl-[5rem] pr-[5rem]"
                     >
-                      <label className="text-base z-0">NAME</label>
-                      <label className="text-xs z-0">YEAR</label>
-                      <label className="text-sm z-0">CURRENT DESIGNATION</label>
+                      <label className="text-[1.5rem] z-0">NAME</label>
+                      <label className="text-[1.1rem] z-0">YEAR</label>
+                      <label className="text-[1.1rem] z-0">CURRENT DESIGNATION</label>
                       <div className="flex flex-row z-0"></div>
                     </div>
                   </div>

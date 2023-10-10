@@ -3,7 +3,7 @@ import './animation.css'
 
 const Hero = () => {
   return (
-    <div className='bg-blue-600 h-[28rem] sm:h-[36rem] lg:h-[40rem]'>
+    <div className='h-[28rem] sm:h-[36rem] lg:h-[40rem]'>
       <div className="flex justify-center items-center flex-col">
         <div className='h-[15rem] sm:h-[16rem]'>
             <div className="h-40 lg:h-80 w-50 flex flex-col  justify-center items-center font-semibold text-xl md:text-2xl lg:text-4xl text-white">

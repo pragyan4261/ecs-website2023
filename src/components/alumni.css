@@ -1,6 +1,10 @@
   .alumniSwiper {
     padding-top: 8rem;
     padding-bottom: 8rem;
+    background-color: transparent;
+  }
+  .alumniSwiper img{
+    background-color: transparent;
   }
   .alumniSwiper .swiper-slide {
     filter: blur(3px);
@@ -9,15 +13,17 @@
     margin-top: 0%;
     margin-bottom: 1rem;
     scale: 0.5;
+    background-color: transparent;
+    border-radius: 100%;
   }
   .alumniSwiper .swiper-slide-active + .swiper-slide {
     filter: blur(0px);
-    scale: 2;
+    scale: 1;
     transition: ease 500ms;
     margin: 0 auto;
     margin-top: 0;
   }
   .alumniSwiper .swiper-slide-active + .swiper-slide div div {
-    background-color: #bcdeec;
+    background-color: transparent;
     z-index: 0;
   }
