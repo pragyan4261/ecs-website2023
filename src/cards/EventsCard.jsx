@@ -11,7 +11,7 @@ const EventsCard = (props) => {
         <h1 className='text-[2rem] uppercase' style={{ marginBottom: '3rem' }}>{props.name}</h1>
         <p>{props.desc}</p>
       </div>
-      <img className='h-[25rem]' src={props.photo} />
+      <img className='h-[25rem]' src={props.photo} alt="" />
     </div >
   )
 }

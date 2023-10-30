@@ -9,7 +9,7 @@ import Footer from '../components/Footer'
 
 const Home = () => {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col' style={{ rowGap: '5rem' }}>
       <Navbar home='active' events='inactive' developers='inactive' about='inactive' feed='inactive' members='inactive' />
       <Hero />
       <Events />

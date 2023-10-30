@@ -24,7 +24,7 @@ const Carousel = () => {
       }}
       className="w-[100%] sm:w-[75%] md:w-[75%] overflow-hidden"
     >
-      <h1 className="text-[1.9rem]">OUR NOTABLE ALUMNI</h1>
+      <h1 className="text-[1.9rem] text-[#ffffff]">OUR NOTABLE ALUMNI</h1>
       <Swiper
         autoplay={{
           delay: 3000,
@@ -61,6 +61,7 @@ const Carousel = () => {
                       display: "inline-block",
                       position: "relative",
                       top: "0rem",
+                      scale: '0.5'
                     }}
                   >
                     <img
@@ -68,10 +69,13 @@ const Carousel = () => {
                         position: "relative",
                         top: "2rem",
                         zIndex: "2",
+                        height: '30vw',
+                        width: '30vw',
+                        border: '0 solid transparent',
+                        borderRadius: '100%'
                       }}
-                      className="h-40 w-40 rounded-full"
                       src={alumni}
-                     alt=""/>
+                      alt="" />
                     <div
                       style={{ zIndex: "-2" }}
                       className="flex flex-col rounded-[1rem] p-3"
