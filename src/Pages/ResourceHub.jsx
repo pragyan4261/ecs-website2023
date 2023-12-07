@@ -4,14 +4,14 @@ import ResourceHubCard from '../cards/ResourceHubCard';
 import Footer from '../components/Footer';
 
 const ResourceHub = () => {
-  const assets = [{ sem: 'FIRST SEMESTER', notes: '/notes/First', course: '' },
-  { sem: 'SECOND SEMESTER', notes: '/notes/Second', course: '' },
-  { sem: 'THIRD SEMESTER', notes: '/notes/Third', course: '' },
-  { sem: 'FOURTH SEMESTER', notes: '/notes/Fourth', course: '' },
-  { sem: 'FIFTH SEMESTER', notes: '/notes/Fifth', course: '' },
-  { sem: 'SIXTH SEMESTER', notes: '/notes/Sixth', course: '' },
-  { sem: 'SEVENTH SEMESTER', notes: '/notes/Seventh', course: '' },
-  { sem: 'EIGHTH SEMESTER', notes: '/notes/Eighth', course: '' }
+  const assets = [{ sem: 'FIRST SEMESTER', notes: '/notes/First', course: 'http://ec.nits.ac.in/wp-content/uploads/2022/03/Course-Structure-ForiB.-Tech-In-Electronics-Communication-Engineering.pdf' },
+  { sem: 'SECOND SEMESTER', notes: '/notes/Second', course: 'http://ec.nits.ac.in/wp-content/uploads/2022/03/Course-Structure-ForiB.-Tech-In-Electronics-Communication-Engineering.pdf' },
+  { sem: 'THIRD SEMESTER', notes: '/notes/Third', course: 'http://ec.nits.ac.in/wp-content/uploads/2022/03/Course-Structure-ForiB.-Tech-In-Electronics-Communication-Engineering.pdf' },
+  { sem: 'FOURTH SEMESTER', notes: '/notes/Fourth', course: 'http://ec.nits.ac.in/wp-content/uploads/2022/03/Course-Structure-ForiB.-Tech-In-Electronics-Communication-Engineering.pdf' },
+  { sem: 'FIFTH SEMESTER', notes: '/notes/Fifth', course: 'http://ec.nits.ac.in/wp-content/uploads/2022/03/Course-Structure-ForiB.-Tech-In-Electronics-Communication-Engineering.pdf' },
+  { sem: 'SIXTH SEMESTER', notes: '/notes/Sixth', course: 'http://ec.nits.ac.in/wp-content/uploads/2022/03/Course-Structure-ForiB.-Tech-In-Electronics-Communication-Engineering.pdf' },
+  { sem: 'SEVENTH SEMESTER', notes: '/notes/Seventh', course: 'http://ec.nits.ac.in/wp-content/uploads/2022/03/Course-Structure-ForiB.-Tech-In-Electronics-Communication-Engineering.pdf' },
+  { sem: 'EIGHTH SEMESTER', notes: '/notes/Eighth', course: 'http://ec.nits.ac.in/wp-content/uploads/2022/03/Course-Structure-ForiB.-Tech-In-Electronics-Communication-Engineering.pdf' }
   ];
   return (
     <div>
