@@ -37,3 +37,20 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+.mySwiper img {
+  height: 10rem;
+  width: 10rem;
+  border: 0 solid transparent;
+  border-radius: 10rem;
+}
+
+
+
+@media screen and (min-width:700px) {
+  .mySwiper img {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 20rem;
+  }
+}

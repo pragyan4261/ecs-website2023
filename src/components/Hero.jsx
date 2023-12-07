@@ -18,7 +18,7 @@ const Hero = () => {
           <h1 className="text-white mb-3 sm:mt-10 flex justify-center text-xl font-bold sm:text-3xl sm:mb-6 md:mb-10 lg:mt-36 lg:text-4xl">Welcome!</h1>
 
           <p className=" text-center text-white font-light text-md sm:text-xl md:text-2xl">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic ex dolores ipsam consectetur laborum dolor ipsa atque omnis, esse maxime molestias, sapiente rerum temporibus at, nobis quaerat voluptates dolorum quae.
+            The official website of Electronics and Communication Society, NIT Silchar
           </p>
         </div>
       </div>
