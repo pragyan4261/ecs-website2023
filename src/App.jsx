@@ -30,6 +30,7 @@ function App() {
           <Route path="/notes/Sixth" element={<Notes sem='Sixth' />} />
           <Route path="/notes/Seventh" element={<Notes sem='Seventh' />} />
           <Route path="/notes/Eighth" element={<Notes sem='Eighth' />} />
+          <Route path="/notes/:sem" component={Notes} />
         </Routes>
       </BrowserRouter>
     </div>
