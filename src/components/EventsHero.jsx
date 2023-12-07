@@ -5,7 +5,7 @@ const EventsHero = () => {
             <div className='bg-[#00000055] p-[8rem]'>
                 <h1 className='text-[3.3125rem] uppercase text-[#ffffff]'>KNOW YOUR EVENTS</h1>
                 <p className='text-[#ffffff] text-[1.25rem]'>
-                    Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
+                    With the vast array of events going on under it, ECS truely proves to be a versatile society. Throughout the calendar year, a number of exciting events are organised by this thriving society. The events can be both technical, as well as non-technical. These events are meant are meant for the goodwill of the students of the branch. The events also include competitions to level up the competitive spirit of a student. These competitions can be broadly classified into LIT-FIT-TECH. LIT stands for Literary, FIT for Fitness and TECH for Technology. Let us find out more about the events.
                 </p>
             </div>
         </div>

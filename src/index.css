@@ -5,4 +5,9 @@
 #root {
     background: linear-gradient(180deg, #0e005c, #0691DA 22.58%, #05B4EE 36.04%, #06B3ED 36.04%, #0A96CF 52.34%, #1073AA 82.85%);
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
 }
