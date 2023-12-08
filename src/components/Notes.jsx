@@ -6,7 +6,7 @@ const Notes = (props) => {
 
     const collection = {
         'First': [
-            { name: 'Mathematics-I', dest: 'https://drive.google.com/drive/folders/1U049Mmp5HQz9Ru-mVG63STDlG5yBT4ao?hl=en_GB', image: 'src\images\kxov0rcoi4p21.png' },
+            { name: 'Mathematics-I', dest: 'https://drive.google.com/drive/folders/1U049Mmp5HQz9Ru-mVG63STDlG5yBT4ao?hl=en_GB', img: 'src/images/kxov0rcoi4p21.png' },
             { name: 'Chemistry', dest: 'https://drive.google.com/drive/folders/1UPJ6HVHTM4Bqb-r7IHikZxW4mJCsVhnI?hl=en_GB' },
             { name: 'Introduction to C Programming', dest: 'https://drive.google.com/drive/folders/1JaxkLym6Fx5o3NcTXrQu1AdpTV7FQ1lC?hl=en_GB' },
             { name: 'Basic Electronics', dest: 'https://drive.google.com/drive/folders/1UW6MITK5Wp6N413KvtBO655AiYUfWHTd?hl=en_GB' },
@@ -68,12 +68,14 @@ const Notes = (props) => {
         <div>
             <Navbar home='inactive' events='inactive' developers='inactive' about='inactive' feed='inactive' members='inactive' />
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-            {collection[props.sem].map((item, index) => <div key={index} style={{ margin: '75px', textAlign: 'center' }}>
+            {collection[props.sem].map((item, index) => (<div key={index} style={{ margin: '75px', textAlign: 'center' }}>
                 <a href={item.dest} target="_blank" rel="noopener noreferrer">
-                <img src={`/images/${item.image}`} alt={`${item.name} Image`} style={{ width: '200px', height: '200px', marginBottom: '5px' }} />
+                <img src={`/images/${item.img}`} 
+                 alt={`${item.name} Image`}
+                 style={{ width: '200px', height: '200px', marginBottom: '5px' }} />
                     {item.name}
                     </a>
-                    </div>)}
+                    </div>))}
                     </div>
         </div>
     );
