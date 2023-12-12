@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 #root {
-    background: linear-gradient(180deg, #0e005c, #0691DA 22.58%, #05B4EE 36.04%, #06B3ED 36.04%, #0A96CF 52.34%, #1073AA 82.85%);
+    background: linear-gradient(180deg, #0e005c 21.58%, #02aadd, #06B3ED, #0A96CF, #043a57);
     min-height: 100vh;
     overflow-x: hidden;
+    padding: 0;
+    margin: 0;
 }
 
 html {

@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import EventsHero from '../components/EventsHero';
 import EventsCard from '../cards/EventsCard';
-import '../components/animation.css';
 const Events = () => {
     const events = [
         { reference: 'Orientation', order: 'flex-row', name: 'Orientation', desc: 'The new members of the ECE Department are cordially welcomed by ECS. The numerous facets of the branch, the faculties, and the various events that the society has planned for them are introduced to the newcomers. Freshmen are given the chance to clear any query they may have about the branch.', photo: 'https://res.cloudinary.com/dhry5xscm/image/upload/v1701984664/ecs-website/orientation23-img_v4xrwk.jpg' },
