@@ -8,12 +8,12 @@ import "./alumni.css";
 import { Zoom, Autoplay, Pagination, Navigation } from "swiper/modules";
 const Carousel = () => {
   const imgs = [
-    { sl: 1, name: "Alumni1", designation: "designation1", id: "card-1" },
-    { sl: 2, name: "Alumni2", designation: "designation2", id: "card-2" },
-    { sl: 3, name: "Alumni3", designation: "designation3", id: "card-3" },
-    { sl: 4, name: "Alumni4", designation: "designation4", id: "card-4" },
-    { sl: 5, name: "Alumni5", designation: "designation5", id: "card-5" },
-    { sl: 6, name: "Alumni6", designation: "designation6", id: "card-6" },
+    { sl: 1, name: "Nandan Paul", designation: "Delivery Manager", company: "Nokia Solutions & Networks", id: "card-1", year: "1997 Batch", img: "https://res.cloudinary.com/dhry5xscm/image/upload/v1702417025/ecs-website/nandan_paul_hiu1tz.jpg" },
+    { sl: 2, name: "G Ramkumar", designation: "Senior Consultant", company: "Tata Consultancy Services", id: "card-2", year: "1997 Batch", img: "https://res.cloudinary.com/dhry5xscm/image/upload/v1702417019/ecs-website/g_ramkumar-removebg-preview_fqnuik.png" },
+    { sl: 3, name: "Arup Das", designation: "General Manager (Employee Services), HR", company: "Indian Oil Corporation Limited", id: "card-3", year: "1997 Batch", img: "https://res.cloudinary.com/dhry5xscm/image/upload/v1702417028/ecs-website/arup_das_hsjm9l.jpg" },
+    { sl: 4, name: "Gaurav Nigam", designation: "Head at IT Infra Management Services", company: "Incedo Inc", id: "card-4", year: "1997 Batch", img: "https://res.cloudinary.com/dhry5xscm/image/upload/v1702417022/ecs-website/gaurav_nigam-removebg-preview_ugbxqv.png" },
+    { sl: 5, name: "Himangshu Agarwala", designation: "VP & Head, Embedded Software", company: "MIRAFRA Technologies", id: "card-5", year: "1997 Batch", img: "https://res.cloudinary.com/dhry5xscm/image/upload/v1702417032/ecs-website/himanshu_agarwala_lkioo3.jpg" },
+    { sl: 6, name: "Arup Das", designation: "General Manager (Employee Services), HR", company: "Indian Oil Corporation Limited", id: "card-3", year: "1997 Batch", img: "https://res.cloudinary.com/dhry5xscm/image/upload/v1702417028/ecs-website/arup_das_hsjm9l.jpg" }
   ];
 
   return (
@@ -67,22 +67,23 @@ const Carousel = () => {
                     <img
                       style={{
                         position: "relative",
-                        top: "2rem",
+                        top: "1.2rem",
                         zIndex: "2",
-                        height: '30vw',
-                        width: '30vw',
+                        height: '25vw',
+                        width: '25vw',
                         border: '0 solid transparent',
                         borderRadius: '100%'
                       }}
-                      src={alumni}
+                      src={item.img}
                       alt="" />
                     <div
                       style={{ zIndex: "-2" }}
-                      className="flex flex-col rounded-[1rem] p-3"
+                      className="flex flex-col rounded-[1rem] p-[2rem]"
                     >
-                      <label className="text-base z-0">NAME</label>
-                      <label className="text-xs z-0">YEAR</label>
-                      <label className="text-sm z-0">CURRENT DESIGNATION</label>
+                      <label className="text-[1.2rem] z-0">{item.name}</label>
+                      <label className="text-xs z-0">{item.year}</label>
+                      <label className="text-sm z-0">{item.designation}</label>
+                      <label className="text-[0.8rem] z-0">{item.company}</label>
                       <div className="flex flex-row z-0"></div>
                     </div>
                   </div>
