@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import './App.css';
 import Home from './Pages/Home'
 import Feed from './Pages/Feed'
@@ -8,14 +9,35 @@ import About from './Pages/About'
 import Events from './Pages/Events'
 import FAQ from './components/FAQ'
 import Notes from "./components/Notes"
+import Login from "./Login/Login"
+import Signup from "./Signup/Signup"
+
+import { auth } from "./firebase";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserName(user.displayName);
+      } else setUserName("");
+    });
+  }, []);
+
+
+
+
+
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<Home />} />
+          <Route path="/" exact element={<Home name={userName}/>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/members" element={<Members />} />
           <Route path="/developers" element={<Developers />} />

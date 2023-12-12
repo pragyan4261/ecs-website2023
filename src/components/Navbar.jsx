@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import Logo from '../images/logo.png'
+import Login from '../Login/Login'
 import HamburgerIcon from '../images/hamburger-menu.png'
 import { Link as LinkRoute } from 'react-router-dom'
 const NavLink = (props) => {
@@ -9,6 +10,14 @@ const NavLink = (props) => {
   );
 }
 const Navbar = (props) => {
+  const [seen, setSeen] = useState(false)
+
+    function togglePop () {
+        setSeen(!seen);
+    };
+
+
+
   const navs_left = [{ text: 'events', type: 'route', dest: props.events === 'active' ? '#' : '/events' }, { text: 'feed', type: 'route', dest: props.feed === 'active' ? '#' : '/feed' }, { text: 'about us', type: 'route', dest: props.about === 'active' ? '#' : '/about' }];
   const navs_right = [{ text: 'members', type: 'route', dest: props.members === 'active' ? '#' : '/members' }, { text: 'developers', type: 'route', dest: props.developers === 'active' ? '#' : '/developers' }, { text: 'faq', type: 'route', dest: props.about === 'active' ? '#' : '/about' }];
   const [mobileMenu, setMenu] = useState('0vh');
@@ -19,7 +28,7 @@ const Navbar = (props) => {
         <img src={mobileMenu === '0vh' ? 'https://res.cloudinary.com/dhry5xscm/image/upload/v1701946021/ecs-website/hamburger-menu_iqxqgn.png' : 'https://res.cloudinary.com/dhry5xscm/image/upload/v1701946204/ecs-website/xmark-solid_m8hqyk_vb8jx6.svg'} alt="" className='h-7 w-7' onClick={() => mobileMenu === '0vh' ? setMenu('100vh') : setMenu('0vh')} style={{ filter: `invert(${mobileMenu === '0vh' ? '0%' : '100%'})` }} />
       </div>
       <div className='flex flex-col bg-[#000055dd] justify-between items-center p-[1rem] w-[50%] md:invisible md:h-0' style={{ zIndex: '5', backdropFilter: 'blur(2px)', left: '10vw', position: 'absolute', width: '90vw', opacity: `${mobileMenu === '0vh' ? '0' : '1'}`, height: `${mobileMenu}`, transition: '500ms ease' }}>
-        <LinkRoute><img src='https://res.cloudinary.com/dhry5xscm/image/upload/v1701942813/ecs-website/ecs-profile_xilte1.svg' style={{ scale: `${mobileMenu === '0vh' ? '0' : '1'}` }} /></LinkRoute>
+        <LinkRoute to='/login'><img src='https://res.cloudinary.com/dhry5xscm/image/upload/v1701942813/ecs-website/ecs-profile_xilte1.svg' style={{ scale: `${mobileMenu === '0vh' ? '0' : '1'}` }} /></LinkRoute>
         {navs_left.map((item) => <NavLink text={item.text} type={item.type} dest={item.dest} state={mobileMenu} />)}
         {navs_right.map((item) => <NavLink text={item.text} type={item.type} dest={item.dest} state={mobileMenu} />)}
       </div>
@@ -28,7 +37,8 @@ const Navbar = (props) => {
           {navs_left.map((item) => <NavLink text={item.text} type={item.type} dest={item.dest} />)}
           <LinkRoute to='/'><img src={Logo} alt="" className='h-0 w-0 md:h-10 md:w-24' /></LinkRoute>
           {navs_right.map((item) => <NavLink text={item.text} type={item.type} dest={item.dest} />)}
-          <LinkRoute><img src='https://res.cloudinary.com/dhry5xscm/image/upload/v1701942813/ecs-website/ecs-profile_xilte1.svg' /></LinkRoute>
+          <LinkRoute to='/'><img src='https://res.cloudinary.com/dhry5xscm/image/upload/v1701942813/ecs-website/ecs-profile_xilte1.svg' onClick={togglePop}/></LinkRoute>
+          {seen ? <Login toggle={togglePop} /> : null}
         </div>
       </div>
     </div>
