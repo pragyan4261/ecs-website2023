@@ -11,7 +11,8 @@ import FAQ from './components/FAQ'
 import Notes from "./components/Notes"
 import Login from "./Login/Login"
 import Signup from "./Signup/Signup"
-
+import Spectrum from "./Pages/Spectrum"
+import Chamber from "./Pages/CoS";
 import { auth } from "./firebase";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -35,7 +36,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<Home name={userName}/>} />
+          <Route path="/" exact element={<Home name={userName} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/feed" element={<Feed />} />
@@ -53,6 +54,8 @@ function App() {
           <Route path="/notes/Seventh" element={<Notes sem='Seventh' />} />
           <Route path="/notes/Eighth" element={<Notes sem='Eighth' />} />
           <Route path="/notes/:sem" component={Notes} />
+          <Route path="/Spectrum" element={<Spectrum />} />
+          <Route path="/CoS" element={<Chamber />} />
         </Routes>
       </BrowserRouter>
     </div>
