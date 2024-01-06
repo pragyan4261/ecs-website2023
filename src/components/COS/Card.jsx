@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Card.css';
 
 const Card = (props) => {
   const [answer, setAnswer] = useState('');
@@ -14,11 +15,12 @@ const Card = (props) => {
         type="text"
         value={answer}
         onChange={handleInputChange}
-        placeholder="Type answer"
+        placeholder="Type your answer here"
       />
     </div>
   );
 };
 
-
 export default Card;
+
+
