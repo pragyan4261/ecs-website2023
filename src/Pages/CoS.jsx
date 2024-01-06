@@ -1,10 +1,17 @@
 import React from 'react'
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Card from '../components/COS/Card';
 import Timer from '../components/COS/clock'
 
 const CoS = () => {
   return (
     <div>
-        <h1 className='text-5xl text-white mb-52 mt-10'>Welcome To Chamber Of Secrets</h1>
+        <h1>
+            Chamber of secrets
+            <Navbar home='inactive' events='active' developers='inactive' about='inactive' feed='inactive' members='inactive' />
+            <Card question={"Question"} answer={"answer"} />
+        </h1>
       <Timer />
     </div>
   )
