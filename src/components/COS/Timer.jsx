@@ -34,10 +34,10 @@ const Timer = () => {
     }
   };
 
-  //if (new Date() < startTime || new Date() > endTime) {
-    // If the current time is before 8 pm or after 10 pm, don't render the Timer
-    //return null;
-  //}
+  // if (new Date() < startTime || new Date() > endTime) {
+  //   // If the current time is before 8 pm or after 10 pm, don't render the Timer
+  //   return null;
+  // }
 
   return (
     <div>
