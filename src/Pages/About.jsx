@@ -6,7 +6,8 @@ import Footer from "../components/Footer"
 
 const About = () => {
   return (
-    <div className='bg-gradient-to-b from-blue-900 via-blue-600 to-blue-300'>
+    // <div className='bg-gradient-to-b from-blue-900 via-blue-600 to-blue-300'>
+    <div className='bg-[#0e005c]'>
       <div>
         <Navbar />
         <h1 className='mt-[9rem] mb-10 text-4xl font-semibold text-white'>KNOW <span className=''>ABOUT US</span></h1>

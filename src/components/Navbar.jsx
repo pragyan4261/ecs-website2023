@@ -2,7 +2,9 @@ import React from 'react'
 import { useState } from 'react';
 import Logo from '../images/logo.png'
 import Login from '../Login/Login'
-import HamburgerIcon from '../images/hamburger-menu.png'
+import SignUp from '../Signup/Signup';
+import SignOut from '../SignOut/SignOut'
+// import HamburgerIcon from '../images/hamburger-menu.png'
 import { Link as LinkRoute } from 'react-router-dom'
 const NavLink = (props) => {
   return (
@@ -10,11 +12,23 @@ const NavLink = (props) => {
   );
 }
 const Navbar = (props) => {
-  const [seen, setSeen] = useState(false)
+  // const [seen, setSeen] = useState(false)
+  const { currentUser, setCurrentUser } = props;
+  const [openLogin, setOpenLogin] = useState(false);
+  const [openSignup, setSignup] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [style, setStyle] = useState("");
+  const handleClick = () => {
+    if (currentUser) {
+      setModal((prev) => !prev);
+    } else {
+      setOpenLogin(true);
+    }
+  };
 
-    function togglePop () {
-        setSeen(!seen);
-    };
+    // function togglePop () {
+    //     setSeen(!seen);
+    // };
 
 
 
@@ -22,6 +36,21 @@ const Navbar = (props) => {
   const navs_right = [{ text: 'members', type: 'route', dest: props.members === 'active' ? '#' : '/members' }, { text: 'developers', type: 'route', dest: props.developers === 'active' ? '#' : '/developers' }, { text: 'faq', type: 'route', dest: props.about === 'active' ? '#' : '/about' }];
   const [mobileMenu, setMenu] = useState('0vh');
   return (
+    <>
+    {openLogin && (
+        <Login
+          setOpenLogin={setOpenLogin}
+          setSignup={setSignup}
+          setCurrentUser={setCurrentUser}
+        />
+      )}
+      {openSignup && (
+        <SignUp
+          setOpenLogin={setOpenLogin}
+          setSignup={setSignup}
+          setCurrentUser={setCurrentUser}
+        />
+      )}
     <div style={{ overflowX: 'hidden' }}>
       <div className='flex visible justify-between pl-[1rem] pr-[1rem] h-[5rem] items-center md:invisible md:h-0'>
         <LinkRoute to='/'><img src={Logo} alt="" className='h-10 w-24' /></LinkRoute>
@@ -37,11 +66,16 @@ const Navbar = (props) => {
           {navs_left.map((item) => <NavLink text={item.text} type={item.type} dest={item.dest} />)}
           <LinkRoute to='/'><img src={Logo} alt="" className='h-0 w-0 md:h-10 md:w-24' /></LinkRoute>
           {navs_right.map((item) => <NavLink text={item.text} type={item.type} dest={item.dest} />)}
-          <LinkRoute to='/'><img src='https://res.cloudinary.com/dhry5xscm/image/upload/v1701942813/ecs-website/ecs-profile_xilte1.svg' onClick={togglePop}/></LinkRoute>
-          {seen ? <Login toggle={togglePop} /> : null}
+
+          <LinkRoute to='/'><img src='https://res.cloudinary.com/dhry5xscm/image/upload/v1701942813/ecs-website/ecs-profile_xilte1.svg' onClick={handleClick}/></LinkRoute>
+          {/* {seen ? <Login toggle={togglePop} /> : null} */}
+          {currentUser && <p className="displayname text-white">{currentUser.displayName}</p>}
+          {modal && <SignOut setModal={setModal} />}
+
         </div>
       </div>
     </div>
+    </>
   )
 }
 
