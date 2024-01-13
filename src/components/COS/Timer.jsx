@@ -40,15 +40,69 @@ const Timer = () => {
   // }
 
   return (
-    <div>
-      <p className='text-3xl text-white'>Time Remaining: {Math.floor(time / 3600)}:{Math.floor((time % 3600) / 60)}:{time % 60}</p>
-      <button onClick={() => setIsTimerRunning(!isTimerRunning)} className='text-3xl text-white'>
-        {isTimerRunning ? 'Pause Timer' : 'Resume Timer'}
-      </button>
-      <a href="#" onClick={handleLinkClick} disabled={!isTimerRunning} className='text-xl text-white'>
-        Your Link
-      </a>
-    </div>
+    <div style={{ position: 'absolute', top: '0', right: '0', textAlign: 'right', marginTop: '20px', marginRight: '20px', paddingTop: '20px' }}>
+  <p style={{
+    fontSize: '1rem',
+    color: '#3498db',
+    marginBottom: '10px',
+    padding: '10px',
+    border: '2px solid #3498db',
+    borderRadius: '8px',
+  }}>
+    Time Remaining: {Math.floor(time / 3600)}:{Math.floor((time % 3600) / 60)}:{time % 60}
+  </p>
+  <button
+    onClick={() => setIsTimerRunning(!isTimerRunning)}
+    style={{
+      fontSize: '1rem',
+      color: '#fff',
+      backgroundColor: isTimerRunning ? '#e74c3c' : '#2ecc71',
+      padding: '10px 20px',
+      border: 'none',
+      borderRadius: '5px',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s ease',
+      display: 'block',
+      marginBottom: '10px',
+      width: '100%',
+    }}
+    onMouseEnter={(e) => e.target.style.transform = 'translateX(-5px)'}
+    onMouseLeave={(e) => e.target.style.transform = 'translateX(0)'}
+  >
+    {isTimerRunning ? 'Pause Timer' : 'Resume Timer'}
+  </button>
+  <a
+    href="#"
+    onClick={handleLinkClick}
+    disabled={!isTimerRunning}
+    style={{
+      fontSize: '1rem',
+      color: '#fff',
+      textDecoration: 'none',
+      display: 'block',
+      marginTop: '10px',
+      width: '100%',
+      backgroundColor: '#2ecc71', // Green background color
+      padding: '10px', // Add padding for better appearance
+      borderRadius: '5px', // Add border-radius for rounded corners
+      textAlign: 'center', // Center the text
+    }}
+    onMouseEnter={(e) => e.target.style.transform = 'translateX(-5px)'}
+    onMouseLeave={(e) => e.target.style.transform = 'translateX(0)'}
+    
+  >
+    Your Link
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
   );
 };
 
