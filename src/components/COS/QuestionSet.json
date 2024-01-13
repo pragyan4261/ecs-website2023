@@ -23,5 +23,25 @@
         "id": 5,
         "question": "A regal heir who embraced ascetic robes journeyed beyond the Ganges and Himalayas. In Shaolin's embrace, he blended Indian wisdom with martial prowess. A movie was made on his journey that turned out to be a classic,can you unveil this Indian prince of spiritual legacy and martial arts fusion?",
         "answer": "bodhidharma"
+    },
+    {
+        "id": 6,
+        "question": "In the realms of magical lore and ancient tales from Chinese mythology, this mysterious creature is shrouded in secrecy. With its serpentine grace, an array of legs, and a mane imbued with magical prowess, it possesses the unique ability to uncover concealed magical phenomena. What is the elusive name of this fantastical being, known to few and revered in whispers among wizards and mythologists alike?",
+        "answer": "Zouwu"
+    },
+    {
+        "id": 7,
+        "question": "In a widely acclaimed animated series, a young protagonist embarks on a transformative journey with his enigmatic, bison-like companion in a realm infused with elemental powers and mythical beings. Can you name the main character and his loyal, talking animal companion, both of whom play pivotal roles in restoring balance to their war-torn world?",
+        "answer": "aang&appa"
+    },
+    {
+        "id": 8,
+        "question": "The show revolves around the protagonist, X, who leads a dual life. By uttering the mystical word X transforms into a powerful superhero with superhuman abilities.The show is dedicated to fighting crime, corruption, and evil forces to maintain justice and peace in society. The series gained immense popularity for its unique blend of superhero action, moral lessons, and entertainment, leaving a lasting impact on Indian television culture. What is the real and superhero names of X respectively?",
+        "answer": "gangadhar&shaktimaan"
+    },
+    {
+        "id": 9,
+        "question": "In an animated series that captivated audiences with its rich storytelling, a group of friends discovers a hidden portal leading to a dimension filled with monsters and adventure. One of the main characters wields a weapon with a gemstone core. What are the names of the animated series and the character with the gemstone weapon?",
+        "answer": "trollhunter&jimlakejunior"
     }
 ]

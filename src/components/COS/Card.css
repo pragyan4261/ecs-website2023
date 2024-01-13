@@ -1,7 +1,7 @@
 .Card {
     max-width: 400px; /* Adjust the maximum width as per your design */
-    margin: 0 auto;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 100px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
@@ -37,7 +37,7 @@
     .card {
       width: 90%; /* Adjust as per your design */
       max-width: 100%;
-      margin: 0 auto;
+      margin: 20px auto;
       padding: 15px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
