@@ -18,7 +18,7 @@ const ResourceHub = () => {
       <Navbar home='inactive' events='inactive' developers='inactive' about='inactive' feed='inactive' members='inactive' />
       <div className='flex flex-col justify-center items-center m-auto text-[#ffffff] p-[4rem]'><h1 className='text-[2rem]'>RESOURCE HUB</h1>
         <p>Online Hub of materials and notes for ECE students</p></div>
-      {assets.map((item) => <ResourceHubCard sem={item.sem} notes={item.notes} course={item.course} />)}
+      {assets.map((item) => <ResourceHubCard sem={item.sem} notes={item.notes} course={item.course}/>)}
       <Footer />
     </div>
   )

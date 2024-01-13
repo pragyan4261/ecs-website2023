@@ -33,10 +33,10 @@ const FAQ = () => {
 
       Question: " What are the events conducted by your branch society (ECS) ?",
       Answer: [
-        "ORIENTATION(It is an introductory session for the freshers to interact with the branch members ),",
+        "ORIENTATION,",
         " UTKRISHTHA( Utkrishtha is the annual freshers event for the ECE department. ),",
         " SPECTRUM (Spectrum is the technical weekend of ECS which is conducted annually),",
-        " SPECTRUM CONNECT ( Spectrum Connect was conducted in the online mode to connect students in and out of the department despite being physically miles away.),",
+        " SPECTRUM CONNECT ( Conducted in the online mode to connect students in and out of the department despite being physically miles away.),",
         " DEHLEEZ (Farewell)",
       ],
     },
@@ -108,8 +108,8 @@ const FAQ = () => {
   window.addEventListener('resize', () => setWindowWidth(windowWidth.current));
   return (
     <div>
-      <h1 className='text-[2rem] text-[#ffffff]'>FREQUENTLY ASKED <span>QUESTIONS</span></h1>
-      <div className='flex flex-col justify-around align-center' style={{ rowGap: '1rem', padding: '0.5rem' }}>
+      <h1 className='text-[2rem] text-[#ffffff] mb-10'>FREQUENTLY ASKED <span>QUESTIONS</span></h1>
+      <div className='flex flex-col justify-around align-center w-[80%] m-auto' style={{ rowGap: '1rem', padding: '0.5rem' }}>
         {data.map((item, index) => <Card question={item.Question} answer={item.Answer} windowWidth={varWindowWidth} />)}
       </div>
     </div >

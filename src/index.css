@@ -5,7 +5,8 @@
 
 
 #root {
-    background: linear-gradient(180deg, #0e005c 21.58%, #02aadd, #06B3ED, #0A96CF, #043a57);
+    /* background: linear-gradient(180deg, #0e005c 21.58%, #02aadd, #06B3ED, #0A96CF, #043a57); */
+    background:  #0e005c;
     min-height: 100vh;
     overflow-x: hidden;
     padding: 0;

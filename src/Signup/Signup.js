@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 import InputControl from "../InputControl/InputControl";
 import { auth } from "../firebase";
-
 import styles from "./Signup.module.css";
 
-function Signup() {
+function SignUp(props) {
+  //const history=useHistory();
+  const { setCurrentUser, setSignup, setOpenLogin } = props;
   const navigate = useNavigate();
+  const [show, setShow] = useState("show");
   const [values, setValues] = useState({
+    //function to setup form details
     name: "",
     email: "",
     pass: "",
@@ -18,6 +22,13 @@ function Signup() {
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const handleSubmission = () => {
+    ////validation for ece.nits.ac.in
+    let atpos = values.email.indexOf("@");
+    let domain = values.email.split("@")[1];
+    if (atpos < 1 || domain !== "ece.nits.ac.in") {
+      setErrorMsg("Only ECE valid");
+      return;
+    }
     if (!values.name || !values.email || !values.pass) {
       setErrorMsg("Fill all fields");
       return;
@@ -25,6 +36,7 @@ function Signup() {
     setErrorMsg("");
 
     setSubmitButtonDisabled(true);
+    /////creating new user after validating
     createUserWithEmailAndPassword(auth, values.email, values.pass)
       .then(async (res) => {
         setSubmitButtonDisabled(false);
@@ -32,17 +44,31 @@ function Signup() {
         await updateProfile(user, {
           displayName: values.name,
         });
+        setCurrentUser(auth.currentUser);
+        setSignup(false);
         navigate("/");
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);
-        setErrorMsg(err.message);
+        if (err.code === "auth/email-already-in-use") {
+          setErrorMsg("Email Already in Use");
+        } else {
+          setErrorMsg(err.message);
+        }
       });
   };
-
+  const handleClick = () => {
+    setSignup(false);
+    setOpenLogin(true);
+  };
   return (
     <div className={styles.container}>
-      <div className={styles.innerBox}>
+      <motion.div
+        className={styles.innerBox}
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.4 }}
+      >
         <h1 className={styles.heading}>Signup</h1>
 
         <InputControl
@@ -51,6 +77,7 @@ function Signup() {
           onChange={(event) =>
             setValues((prev) => ({ ...prev, name: event.target.value }))
           }
+          type={"text"}
         />
         <InputControl
           label="Email"
@@ -58,6 +85,7 @@ function Signup() {
           onChange={(event) =>
             setValues((prev) => ({ ...prev, email: event.target.value }))
           }
+          type={"email"}
         />
         <InputControl
           label="Password"
@@ -65,23 +93,48 @@ function Signup() {
           onChange={(event) =>
             setValues((prev) => ({ ...prev, pass: event.target.value }))
           }
+          type={show !== "show" ? "text" : "password"}
         />
-
+        {values.pass.length > 1 && (
+          <p
+            onClick={() => setShow(show === "show" ? "Hide" : "show")}
+            style={{
+              position: "absolute",
+              top: "60%",
+              fontSize: "14px",
+              textDecoration: "underline",
+              cursor: "pointer",
+            }}
+          >
+            {show} password
+          </p>
+        )}
         <div className={styles.footer}>
           <b className={styles.error}>{errorMsg}</b>
           <button onClick={handleSubmission} disabled={submitButtonDisabled}>
             Signup
           </button>
+          <button
+            className={styles.cancel}
+            onClick={() => {
+              setSignup(false);
+            }}
+          >
+            Cancel
+          </button>
           <p>
             Already have an account?{" "}
             <span>
-              <Link to="/login">Login</Link>
+              <a href="#" onClick={handleClick}>
+                Login
+              </a>
             </span>
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
 
-export default Signup;
+export default SignUp;
+

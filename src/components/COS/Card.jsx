@@ -15,7 +15,8 @@ const Card = (props) => {
         type="text"
         value={answer}
         onChange={handleInputChange}
-        placeholder="Type your answer here"
+        placeholder="Type answer"
+        id="answerBox"
       />
     </div>
   );
