@@ -52,10 +52,10 @@ const Chamber = () => {
         <div styles={{ minHeight: '100vh' }}>
             <Navbar home='inactive' events='inactive' developers='inactive' about='inactive' feed='inactive' members='inactive' />
             {entered===false?
-            <div style={{position:'fixed',marginLeft:'50vw',marginTop:'40vh',zIndex:'2',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
-                <form method="POST" className='absolute flex flex-col p-[2rem] bg-[#000011aa]'>
-                    <input type="text" placeholder="Enter your team name" value={teamName} onChange={(e)=>setteamName(e.target.value)} name="team" style={{backgroundColor:"#aaaaaa99"}} />
-                    <input type="submit" value="PROCEED" onClick={enterTheGame} />
+            <div style={{ position: 'fixed', left: '50%', top: '40%', transform: 'translate(-50%, -50%)', zIndex: '2', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <form method="POST" className='flex p-4 bg-black bg-opacity-70 rounded-md'>
+              <input type="text" placeholder="Enter your team name" value={teamName} onChange={(e) => setteamName(e.target.value)} name="team" className='mr-2 p-2 bg-gray-300' style={{ flex: '1', minWidth: '200px' }} />
+              <input type="submit" value="PROCEED" onClick={enterTheGame} className='px-4 py-2 bg-green-500 text-white rounded cursor-pointer' />
                 </form>
                 </div>:null
             }
