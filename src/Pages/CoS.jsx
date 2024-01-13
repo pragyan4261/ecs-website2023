@@ -63,9 +63,25 @@ const Chamber = () => {
                 <Timer />
                 <div className='bg-[#aaaadd] p-[2rem] rounded-[2rem]'>
                     <Card question={curr.question} answer={curr.answer} />
-                    <div styles={{ marginLeft: 'auto', marginRight: 'auto', marginTop: '1rem' }}>
-                        <button className='bg-[#000055] text-[#ffffff]' style={{ margin: '0 auto' }} onClick={checkCorrect}>Submit</button>
-                    </div>
+                    <div style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: '1rem' }}>
+  <button
+    style={{
+      backgroundColor: '#0808e6b8',
+      color: '#ffffff',
+      padding: '12px 24px',
+      border: '1px solid #0808e6',
+      borderRadius: '6px',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s ease, transform 0.3s ease',
+    }}
+    onClick={checkCorrect}
+    onMouseEnter={(e) => e.target.style.transform = 'translateX(-5px)'}
+    onMouseLeave={(e) => e.target.style.transform = 'translateX(0)'}
+  >
+    Submit
+  </button>
+</div>
+
                 </div>
             </div>
             <Footer />
