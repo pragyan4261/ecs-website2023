@@ -57,7 +57,7 @@ const Navbar = (props) => {
         <img src={mobileMenu === '0vh' ? 'https://res.cloudinary.com/dhry5xscm/image/upload/v1701946021/ecs-website/hamburger-menu_iqxqgn.png' : 'https://res.cloudinary.com/dhry5xscm/image/upload/v1701946204/ecs-website/xmark-solid_m8hqyk_vb8jx6.svg'} alt="" className='h-7 w-7' onClick={() => mobileMenu === '0vh' ? setMenu('100vh') : setMenu('0vh')} style={{ filter: `invert(${mobileMenu === '0vh' ? '0%' : '100%'})` }} />
       </div>
       <div className='flex flex-col bg-[#000055dd] justify-between items-center p-[1rem] w-[50%] md:invisible md:h-0' style={{ zIndex: '5', backdropFilter: 'blur(2px)', left: '10vw', position: 'absolute', width: '90vw', opacity: `${mobileMenu === '0vh' ? '0' : '1'}`, height: `${mobileMenu}`, transition: '500ms ease' }}>
-        <LinkRoute to='/login'><img src='https://res.cloudinary.com/dhry5xscm/image/upload/v1701942813/ecs-website/ecs-profile_xilte1.svg' style={{ scale: `${mobileMenu === '0vh' ? '0' : '1'}` }} /></LinkRoute>
+        <LinkRoute to='/'><img src='https://res.cloudinary.com/dhry5xscm/image/upload/v1701942813/ecs-website/ecs-profile_xilte1.svg' style={{ scale: `${mobileMenu === '0vh' ? '0' : '1'}` }} onClick={handleClick} /></LinkRoute>
         {navs_left.map((item) => <NavLink text={item.text} type={item.type} dest={item.dest} state={mobileMenu} />)}
         {navs_right.map((item) => <NavLink text={item.text} type={item.type} dest={item.dest} state={mobileMenu} />)}
       </div>
