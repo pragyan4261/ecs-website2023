@@ -35,7 +35,7 @@ Life is beautiful, so embrace it.
     `
   },
   {
-    'name': 'Dr. Rabul Hussain Laskar', 'designation': 'HOD', 'photo': 'https://res.cloudinary.com/dhry5xscm/image/upload/v1701965729/ecs-website/rabul-img_aadpih.jpg',
+    'name': 'Dr. Koushik Guha', 'designation': 'HOD', 'photo': 'https://res.cloudinary.com/dyuggtbjl/image/upload/v1705432284/ecs/d9398f32-6399-4b54-84cb-d7ccb6ece3c4_b33ujf.jpg',
     'message': `
       Dear aspiring engineers, It is with great pleasure that I extend a warm welcome to you as the HOD of the Electronics and Communication Engineering Department. Our department is a thriving hub of innovation and exploration dedicated to nurturing the talents of tomorrow's technological leaders.I have full confidence that together we will push our boundaries, create solutions and excel in all expects inspiring a change among all. The future of Electronics and Communication Engineering rests in your capable hands, and I am excited to see the innovations and breakthroughs you will bring to the  world. Your future begins here!
     `

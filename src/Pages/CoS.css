@@ -1,0 +1,156 @@
+.startingCardCont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    color:#ffffff;
+    font-size: 0.6rem;
+    padding:2rem;
+}
+.startingCard{
+    background-image: url('https://res.cloudinary.com/dyuggtbjl/image/upload/v1705091238/ecs/chamber_of_secrets_vob0wl.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow:hidden;
+    animation: starting;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    scale:0;
+    border-width:1rem;
+    border-style: solid;
+    border-image-source:url("https://res.cloudinary.com/dyuggtbjl/image/upload/v1705099460/ecs/images_4_c1ci4r.jpg");
+    border-image-repeat: round;
+    border-image-slice: 30;
+}
+@keyframes starting{
+    0%{
+        scale:0;
+    }
+    100%{
+        scale:1;
+    }
+}
+.innerCont{
+    background-color: #000000b4;
+    padding: 2rem;
+    backdrop-filter:blur(1px);
+}
+.p1{
+    opacity: 0;
+    animation-name: p1;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+@keyframes p1 {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.p2{
+    opacity: 0;
+    animation-name: p2;
+    animation-delay:1s;
+    animation-duration: 3.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+@keyframes p2 {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.rules{
+    margin-top:2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    animation-name: rules;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 3.5s;
+    animation-iteration-count: 1;
+    opacity:0;
+}
+@keyframes rules {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.rules h1{
+    text-align: center;
+    width:100%;
+}
+.rules ul{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+}
+.nextBtn{
+    background-color: #ff9900;
+    color:#15003e;
+    margin-top: 1rem;
+    padding:0.5rem 3rem;
+    border:0 solid transparent;
+    border-radius: 2rem;
+    transition-duration:1s;
+    animation-name:nextBtn;
+    animation-duration: 0.5s;
+    animation-delay: 4.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    opacity: 0;
+}
+@keyframes nextBtn {
+    0%{
+        scale:0;
+        opacity: 0;
+    }
+    100%{
+        scale:1;
+        opacity: 1;
+    }
+}
+.nextBtn:hover{
+    background-color: #15003e;
+    color: #ff9900;
+    transition-duration: 1s;
+}
+.subBtn{
+    background-color: #ff9900;
+    color:#15003e;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding:0.5rem 3rem;
+    border:0 solid transparent;
+    border-radius: 2rem;
+    transition-duration:1s;
+    animation-name:nextBtn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    opacity: 0;
+}
+
+.qcard{
+    background-image: url('https://res.cloudinary.com/dyuggtbjl/image/upload/v1705313385/Chamber_of_secrets_titskh.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow:hidden;
+    background-position: center;
+    z-index: 10;
+    backdrop-filter: blur(1px);
+}

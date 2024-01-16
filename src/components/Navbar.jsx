@@ -8,7 +8,7 @@ import SignOut from '../SignOut/SignOut'
 import { Link as LinkRoute } from 'react-router-dom'
 const NavLink = (props) => {
   return (
-    <LinkRoute to={props.dest} class='uppercase font-sans text-[1rem] font-[700] tracking-[0.1rem] text-center text-white' style={{ scale: `${props.state === '0vh' ? '0' : '1'}`, opacity: `${props.state === '0vh' ? '0' : '1'}` }}>{props.text}</LinkRoute>
+    <LinkRoute to={props.dest} class='uppercase font-sans sm:text-[0.7rem] md:text-[0.9rem] font-[700] text-center text-white' style={{ scale: `${props.state === '0vh' ? '0' : '1'}`, opacity: `${props.state === '0vh' ? '0' : '1'}` }}>{props.text}</LinkRoute>
   );
 }
 const Navbar = (props) => {
@@ -17,7 +17,7 @@ const Navbar = (props) => {
   const [openLogin, setOpenLogin] = useState(false);
   const [openSignup, setSignup] = useState(false);
   const [modal, setModal] = useState(false);
-  const [style, setStyle] = useState("");
+  // const [style, setStyle] = useState("");
   const handleClick = () => {
     if (currentUser) {
       setModal((prev) => !prev);
@@ -32,8 +32,8 @@ const Navbar = (props) => {
 
 
 
-  const navs_left = [{ text: 'events', type: 'route', dest: props.events === 'active' ? '#' : '/events' }, { text: 'feed', type: 'route', dest: props.feed === 'active' ? '#' : '/feed' }, { text: 'about us', type: 'route', dest: props.about === 'active' ? '#' : '/about' }];
-  const navs_right = [{ text: 'members', type: 'route', dest: props.members === 'active' ? '#' : '/members' }, { text: 'developers', type: 'route', dest: props.developers === 'active' ? '#' : '/developers' }, { text: 'faq', type: 'route', dest: props.about === 'active' ? '#' : '/about' }];
+  const navs_left = [{ text: 'events', type: 'route', dest: props.events === 'active' ? '#' : '/events' }, { text: 'about us', type: 'route', dest: props.about === 'active' ? '#' : '/about' },{ text: 'members', type: 'route', dest: props.members === 'active' ? '#' : '/members' },];
+  const navs_right = [ { text: 'developers', type: 'route', dest: props.developers === 'active' ? '#' : '/developers' }, { text: 'resource hub', type: 'route', dest: '/resourcehub' }];
   const [mobileMenu, setMenu] = useState('0vh');
   return (
     <>
@@ -67,9 +67,9 @@ const Navbar = (props) => {
           <LinkRoute to='/'><img src={Logo} alt="" className='h-0 w-0 md:h-10 md:w-24' /></LinkRoute>
           {navs_right.map((item) => <NavLink text={item.text} type={item.type} dest={item.dest} />)}
 
-          <LinkRoute to='/'><img src='https://res.cloudinary.com/dhry5xscm/image/upload/v1701942813/ecs-website/ecs-profile_xilte1.svg' onClick={handleClick}/></LinkRoute>
+          <LinkRoute to='/'><img src='https://res.cloudinary.com/dyuggtbjl/image/upload/v1705431987/ecs/avatar_txmdp1.png' style={{filter:'invert(100%)',width:'4rem',height:'4rem'}} onClick={handleClick}/></LinkRoute>
           {/* {seen ? <Login toggle={togglePop} /> : null} */}
-          {currentUser && <p className="displayname text-white">{currentUser.displayName}</p>}
+          {currentUser && <p className="displayName text-white">{currentUser.displayName}</p>}
           {modal && <SignOut setModal={setModal} />}
 
         </div>

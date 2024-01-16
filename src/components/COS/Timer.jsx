@@ -30,6 +30,7 @@ const Timer = () => {
   const handleLinkClick = () => {
     if (!isTimerRunning) {
       alert("Timer has stopped. Link is disabled.");
+      window.location.href='/';
       // You can add additional logic or redirection here
     }
   };
@@ -41,13 +42,13 @@ const Timer = () => {
 
   return (
     <div>
-      <p className='text-3xl text-white'>Time Remaining: {Math.floor(time / 3600)}:{Math.floor((time % 3600) / 60)}:{time % 60}</p>
-      <button onClick={() => setIsTimerRunning(!isTimerRunning)} className='text-3xl text-white'>
+      <p className='text-lg text-white relative -top-20 text-center'>Time Remaining: {Math.floor(time / 3600)}:{Math.floor((time % 3600) / 60)}:{time % 60}</p>
+      {/* <button onClick={() => setIsTimerRunning(!isTimerRunning)} className='text-xl text-white'>
         {isTimerRunning ? 'Pause Timer' : 'Resume Timer'}
-      </button>
-      <a href="#" onClick={handleLinkClick} disabled={!isTimerRunning} className='text-xl text-white'>
+      </button> */}
+      {/* <a href="#" onClick={handleLinkClick} disabled={!isTimerRunning} className='text-xl text-white'>
         Your Link
-      </a>
+      </a> */}
     </div>
   );
 };
