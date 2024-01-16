@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
+import { onAuthStateChanged } from "firebase/auth";
 import Home from './Pages/Home'
 import Feed from './Pages/Feed'
 import Members from './Pages/Members'
@@ -7,7 +8,8 @@ import Developers from './Pages/Developers'
 import ResourceHub from './Pages/ResourceHub'
 import About from './Pages/About'
 import Events from './Pages/Events'
-import FAQ from './components/FAQ'
+// import FAQ from './components/FAQ'
+import Protected from './Protected'
 import Notes from "./components/Notes"
 import Login from "./Login/Login"
 import Signup from "./Signup/Signup"
@@ -15,6 +17,7 @@ import Spectrum from "./Pages/Spectrum"
 import Chamber from "./Pages/CoS";
 import { auth } from "./firebase";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+// import Navbar
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -27,7 +30,14 @@ function App() {
     });
   }, []);
 
-
+  const [currentUser, setCurrentUser] = useState(null);
+ onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user);
+    } else {
+      setCurrentUser(null);
+    }
+  });
 
 
 
@@ -42,7 +52,16 @@ function App() {
           <Route path="/feed" element={<Feed />} />
           <Route path="/members" element={<Members />} />
           <Route path="/developers" element={<Developers />} />
-          <Route path="/resourcehub" element={<ResourceHub />} />
+
+          <Route
+          path="/resourcehub"
+          element={
+            <Protected currentUser={currentUser}>
+              <ResourceHub />
+            </Protected>
+          }
+        />
+          {/* <Route path="/resourcehub" element={<ResourceHub />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Events />} />
           <Route path="/notes/First" element={<Notes sem='First' />} />

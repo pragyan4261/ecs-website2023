@@ -1,0 +1,31 @@
+.cardHome{
+    background-color: transparent;
+    color:#00d9ff;
+    border:1px solid #00d9ff;
+    animation-name: glowing;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    width:80vw;
+    margin:0 auto;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    text-wrap: wrap;
+}
+@keyframes glowing {
+    0%{
+        background-color: transparent;
+    color:#00d9ff;
+    box-shadow:none;
+    }
+    50%{
+        background-color: #00d9ff;
+    color:#040052;
+    box-shadow: 0 0 1rem #00d9ff;
+    }
+    100%{
+        background-color: transparent;
+    color:#00d9ff;
+    box-shadow:none;
+    }
+}

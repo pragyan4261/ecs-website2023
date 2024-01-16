@@ -78,12 +78,12 @@ const Carousel = () => {
                       alt="" />
                     <div
                       style={{ zIndex: "-2" }}
-                      className="flex flex-col rounded-[1rem] p-[2rem]"
+                      className="flex flex-col rounded-[1rem] p-[2rem] space-y-3"
                     >
-                      <label className="text-[1.2rem] z-0">{item.name}</label>
-                      <label className="text-xs z-0">{item.year}</label>
-                      <label className="text-sm z-0">{item.designation}</label>
-                      <label className="text-[0.8rem] z-0">{item.company}</label>
+                      <label className="text-[1.2rem] z-0 md:text-[2rem]">{item.name}</label>
+                      <label className="text-xs z-0 md:text-[1.3rem]">{item.year}</label>
+                      <label className="text-sm z-0 md:text-[1.3rem]">{item.designation}</label>
+                      <label className="text-[0.8rem] z-0 md:text-[1.3rem]">{item.company}</label>
                       <div className="flex flex-row z-0"></div>
                     </div>
                   </div>
