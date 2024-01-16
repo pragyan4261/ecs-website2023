@@ -34,7 +34,7 @@ const Spectrum = () => {
             <div className="flex flex-wrap" style={{columnGap:'3rem',rowGap:'3rem'}}>
                 {
                     dbnTech.map((item)=><Card name={item.name}
-                        photo={item.photo}
+                        photo={item.photo} register={item.register}
                     />)
                 }
                 </div>
