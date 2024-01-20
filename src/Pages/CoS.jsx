@@ -38,7 +38,7 @@ const Chamber = () => {
         if(finalString ===curr.answer){
             if(question<5){
             setQuestion(question+1);
-            setScore(score+1);
+            setScore(score+10);
             }else{
                 alert("This was the last question");
             }
@@ -91,14 +91,14 @@ const Chamber = () => {
                 <div className='startingCardCont'>
                     <div className='startingCard'>
                         <div className='innerCont'>
-                            <p className='p1'>
+                            <p className='p1 text-lg'>
                             Whispers of the arcane, secrets entwined. Embrace the shadows, unravel the unknown. Enter the mystic realm, conquer the riddles, and rise.
                             </p>
-                            <p className='p2'>
+                            <p className='p2 text-lg'>
                             Unlock the mysteries, crack the enigma! Join the ultimate riddle-solving challenge and let your intellect shine in this thrilling competition.
                             </p>
-                            <p className='rules'>
-                                <h1>Welcome to The Chamber of Secrets!! </h1>
+                            <p className='rules text-lg space-y-3'>
+                                <h1 className='text-3xl mb-10'>Welcome to The Chamber of Secrets!! </h1>
                                 <p>Rules:</p>
                                 <ul>
                                     <li>Time limit: 60 minutes</li>
@@ -116,7 +116,7 @@ const Chamber = () => {
             }
             {entered===false && start===true?
             <div style={{zIndex:'2',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',minHeight:'80vh'}}>
-                <form method="POST" className='flex flex-col p-[3rem] bg-[#00001165] w-[80%] h-[100%] rounded-[1rem]'>
+                <form method="POST" className='flex flex-col p-[3rem] bg-[#00001165] w-[30%] h-[100%] rounded-[1rem] '>
                     <input type="text" placeholder="Enter your team name" value={teamName} onChange={(e)=>setteamName(e.target.value)} name="team" style={{backgroundColor:"#aaaaaa55",padding:'1rem',border:'1px solid #40ff00',borderRadius:'2rem',color:'#ffffff'}} />
                     <input type="submit" className='subBtn' value="START THE GAME" onClick={enterTheGame} />
                 </form>
@@ -126,11 +126,12 @@ const Chamber = () => {
                 start===true && entered===true?
             <div className='h-[100vh] flex flex-col items-center justify-center' style={{filter:`blur(${entered===false?'8px':'0px'})`}}>
                 <Timer />
-                <div className='scoreCont'>{score}</div>
+                <div className='scoreCont text-white text-2xl mt-5'>Score is : {score}</div>
+                <div className='text-white text-2xl mt-2'>Question Number : {question}</div>
                 <div className="qcard p-[3rem] rounded-[2rem] w-[60%] h-auto space-y-10 text-white">
                     <Card question={curr.question} answer={curr.answer} />
                     <div styles={{ marginLeft: 'auto', marginRight: 'auto', marginTop: '1rem' , zIndex: 20}}>
-                        <button className='bg-[#000055] text-[#ffffff] w-36 h-10 rounded-lg hover:rounded-full ' style={{ margin: '0 auto' }} onClick={checkCorrect}>Submit</button>
+                        <button className='bg-[#4444ff] text-[#ffffff] w-36 h-10 rounded-lg hover:rounded-full ' style={{ margin: '0 auto' }} onClick={checkCorrect}>Submit</button>
                     </div>
                 </div>
             </div>:null
