@@ -11,8 +11,8 @@ const Card = (props) => {
   };
 
   return (
-    <div className="card space-y-5">
-      <h2 className='text-lg mb-3  leading-9' style={{fontFamily: 'Nosifer, sans-serif'}}>{props.question}</h2>
+    <div className="card space-y-5 w-96">
+      <h2 className='text-sm mb-3  leading-2' style={{fontFamily: 'Nosifer, sans-serif'}}>{props.question}</h2>
       <input
         type="text"
         value={answer}

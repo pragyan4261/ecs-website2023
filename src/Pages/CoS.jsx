@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Card from '../components/COS/Card';
@@ -6,7 +7,9 @@ import data from '../components/COS/QuestionSet.json';
 import Timer from "../components/COS/Timer"
 import './CoS.css';
 import { useState, useEffect,useRef } from "react";
+import { toast } from 'sonner';
 const Chamber = () => {
+    const navigate = useNavigate();
     const [question, setQuestion] = useState(1);
     const [entered,isEntered]=useState(false);
     const [start,setStart]=useState(false);
@@ -36,16 +39,52 @@ const Chamber = () => {
             }
         }
         if(finalString ===curr.answer){
+           
             if(question<5){
             setQuestion(question+1);
             setScore(score+10);
+            updateFirebaseData(teamName.toLowerCase(), question, score + 10);
+
             }else{
-                alert("This was the last question");
+                updateFirebaseData(teamName.toLowerCase(), question, score + 10);
+                toast("Congrats! You have solved all the questions.");
+                navigate("/");
             }
             // setCurr(questionLocal[question-1]);
         }
         else{
-            alert("Wrong answer");
+            toast("Wrong answer");
+        }
+    }
+    const updateFirebaseData = async (team, newQuestion, newScore) => {
+        try {
+            let getUsers = await fetch('https://my-project-1-64eb2-default-rtdb.firebaseio.com/user.json', {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            let users = await getUsers.json();
+    
+            if (users) {
+                const userExists = Object.values(users).some(user => user.teamName === team);
+                if (userExists) {
+                    // Find the user and update the data
+                    const updatedUsers = Object.keys(users).map(key => {
+                        if (users[key].teamName === team) {
+                            return { ...users[key], question: newQuestion, score: newScore };
+                        }
+                        return users[key];
+                    });
+    
+                    // Update the entire data in Firebase
+                    await fetch('https://my-project-1-64eb2-default-rtdb.firebaseio.com/user.json', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(updatedUsers)
+                    });
+                }
+            }
+        } catch (error) {
+            console.error("Error updating Firebase data:", error);
         }
     }
     const enterTheGame=async (e)=>{

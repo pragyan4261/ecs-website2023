@@ -17,6 +17,8 @@ import Spectrum from "./Pages/Spectrum"
 import Chamber from "./Pages/CoS";
 import { auth } from "./firebase";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Toaster, toast } from 'sonner';
+
 // import Navbar
 
 function App() {
@@ -77,6 +79,7 @@ function App() {
           <Route path="/CoS" element={<Chamber />} />
         </Routes>
       </BrowserRouter>
+      <Toaster />
     </div>
   );
 }
