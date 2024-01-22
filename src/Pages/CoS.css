@@ -6,11 +6,14 @@
     color:#ffffff;
     font-size: 0.6rem;
     padding:2rem;
+    background-blend-mode: darken;
 }
 .startingCard{
-    background-image: url('https://res.cloudinary.com/dyuggtbjl/image/upload/v1705091238/ecs/chamber_of_secrets_vob0wl.jpg');
+    
     background-repeat: no-repeat;
-    background-size: cover;
+    /* background-size: cover; */
+   
+    object-fit: cover;
     overflow:hidden;
     animation: starting;
     animation-duration: 0.5s;
@@ -22,6 +25,8 @@
     border-image-source:url("https://res.cloudinary.com/dyuggtbjl/image/upload/v1705099460/ecs/images_4_c1ci4r.jpg");
     border-image-repeat: round;
     border-image-slice: 30;
+    /* height: 35rem; */
+    width: 80%;
 }
 @keyframes starting{
     0%{
@@ -32,9 +37,14 @@
     }
 }
 .innerCont{
-    background-color: #000000b4;
+    background: url('https://res.cloudinary.com/djdjzwkex/image/upload/v1705734940/6197726_l0d11z.jpg') no-repeat center/cover;
+    object-fit: cover;
+    /* background-color: #0000008a; */
     padding: 2rem;
     backdrop-filter:blur(1px);
+    height: 100%;
+    word-spacing: normal;
+
 }
 .p1{
     opacity: 0;
@@ -77,7 +87,7 @@
     animation-name: rules;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
-    animation-delay: 3.5s;
+    animation-delay: 1s;
     animation-iteration-count: 1;
     opacity:0;
 }
@@ -98,21 +108,37 @@
     flex-direction: column;
     align-items: start;
     justify-content: space-around;
+    text-align: left;
+}
+@media screen and (max-width: 500px) {
+    .rules h1{
+        font-size: 1.5rem;
+        
+    }
+    .rules ul li{
+        font-size: 0.8rem;
+    }
+
 }
 .nextBtn{
     background-color: #ff9900;
     color:#15003e;
-    margin-top: 1rem;
     padding:0.5rem 3rem;
     border:0 solid transparent;
     border-radius: 2rem;
     transition-duration:1s;
     animation-name:nextBtn;
     animation-duration: 0.5s;
-    animation-delay: 4.5s;
+    animation-delay: 1.5s;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     opacity: 0;
+    width: 15rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 2rem;
+
 }
 @keyframes nextBtn {
     0%{
@@ -134,7 +160,7 @@
     color:#15003e;
     cursor: pointer;
     margin-top: 1rem;
-    padding:0.5rem 3rem;
+    padding: 1rem;
     border:0 solid transparent;
     border-radius: 2rem;
     transition-duration:1s;
@@ -146,11 +172,12 @@
 }
 
 .qcard{
-    background-image: url('https://res.cloudinary.com/dyuggtbjl/image/upload/v1705313385/Chamber_of_secrets_titskh.svg');
+    /* background-image: url('https://res.cloudinary.com/dyuggtbjl/image/upload/v1705313385/Chamber_of_secrets_titskh.svg'); */
+    width: 90%;
     background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: cover;
     overflow:hidden;
     background-position: center;
     z-index: 10;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(10px);
 }

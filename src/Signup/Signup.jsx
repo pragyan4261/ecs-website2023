@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-
+import {toast} from "sonner";
 import InputControl from "../InputControl/InputControl";
 import { auth } from "../firebase";
 import styles from "./Signup.module.css";
@@ -52,8 +52,11 @@ function SignUp(props) {
         setSubmitButtonDisabled(false);
         if (err.code === "auth/email-already-in-use") {
           setErrorMsg("Email Already in Use");
-        } else {
-          setErrorMsg(err.message);
+        } 
+        else{
+          // navigate("/");
+          toast.success("You have successfully signed up!")
+          // setErrorMsg("You have successfully signed up!")
         }
       });
   };

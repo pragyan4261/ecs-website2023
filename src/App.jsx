@@ -17,11 +17,12 @@ import Spectrum from "./Pages/Spectrum"
 import Chamber from "./Pages/CoS";
 import { auth } from "./firebase";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Toaster } from 'sonner';
+
 // import Navbar
 
 function App() {
   const [userName, setUserName] = useState("");
-
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -74,9 +75,10 @@ function App() {
           <Route path="/notes/Eighth" element={<Notes sem='Eighth' />} />
           <Route path="/notes/:sem" component={Notes} />
           <Route path="/Spectrum" element={<Spectrum />} />
-          <Route path="/CoS" element={<Chamber />} />
+            <Route path="/CoS" element={<Chamber />} />
         </Routes>
       </BrowserRouter>
+      <Toaster />
     </div>
   );
 }

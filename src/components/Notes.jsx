@@ -72,7 +72,7 @@ const Notes = (props) => {
                 {collection[props.sem].map((item, index) => (
                     <a target="_blank" rel="noopener noreferrer" href={item.dest} key={index} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundImage: `url('${item.img}')`, backgroundSize: 'cover', backgroundPosition: 'center', overflow: 'hidden', textAlign: 'center', height: '20rem', margin: '5rem', width: '20rem' }} className='subHolder'>
                         <div className='lustre'></div>
-                        <h2 className='text-[1.3rem] text-[#ffffff] bg-[#00000099] p-[1rem]' style={{ border: '0px solid transparent', borderRadius: '2rem' }}>{item.name}</h2>
+                        <h2 className='text-[1.3rem] text-[#ffffff] bg-[#00000099] p-[1rem] mr-7' style={{ border: '0px solid transparent', borderRadius: '2rem' }}>{item.name}</h2>
                     </a>))}
             </div>
         </div>

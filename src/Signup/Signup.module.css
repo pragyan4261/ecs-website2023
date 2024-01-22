@@ -15,7 +15,7 @@
 }
   
   .innerBox {
-    min-width: 480px;
+    margin-left: 2.3rem;
     height: fit-content;
     width: fit-content;
     background-color: #fff;
@@ -25,6 +25,11 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+  }
+  @media screen and (min-width:700px){
+    .innerBox{
+      width:40vw;
+    }
   }
   
   .footer {
