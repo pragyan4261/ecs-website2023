@@ -3,31 +3,56 @@ import { useNavigate } from "react-router-dom";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Card from '../components/COS/Card';
-import data from '../components/COS/QuestionSet.json';
-import Timer from "../components/COS/Timer"
+import Timer from "../components/COS/Timer";
 import './CoS.css';
-import { useState, useEffect,useRef } from "react";
+import { useState, useEffect } from "react";
 import { toast } from 'sonner';
+import {db,collection,where,query,getDocs} from '../firebase';
 const Chamber = () => {
+
+
+//shows current Date and Time
+const currentDate = new Date();
+const formattedDate = currentDate.toLocaleDateString('en-US', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  hour12: true,
+});
+
     const navigate = useNavigate();
     const [question, setQuestion] = useState(1);
     const [entered,isEntered]=useState(false);
     const [start,setStart]=useState(false);
     const [teamName,setteamName]=useState("");
     const [score,setScore]=useState(0);
-    const [curr, setCurr] = useState({
-        question: "", answer: ""
-    });
-    var questionLocal=[];
-    const answerInputRef = useRef(null);
+    const [curr, setCurr] = useState(null);
+    // useEffect(()=>{
+    //     data.map((item)=>{
+    //         questionLocal.push({
+    //             question:item.question,
+    //             answer:item.answer
+    //         });
+    //     })
+    //     setCurr(questionLocal[question-1]);
+    // },[question]);
     useEffect(()=>{
-        data.map((item)=>{
-            questionLocal.push({
-                question:item.question,
-                answer:item.answer
+        const getQuestion=async()=>{
+            const callRef=collection(db,'questions');
+            const q=query(callRef,where("qNo","==",question.toString()));
+            const querySnapshot = await getDocs(q);
+            let ques=[]
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              ques.push(doc.data());
             });
-        })
-        setCurr(questionLocal[question-1]);
+            setCurr(ques[0]);
+        }
+        getQuestion();
     },[question]);
     const checkCorrect=async ()=>{
         const userAnswer = document.getElementById('answerBox').value.toLowerCase();
@@ -39,7 +64,7 @@ const Chamber = () => {
             }
         }
         if(finalString ===curr.answer){
-           
+           toast.success("Correct answer");
             if(question<5){
             setQuestion(question+1);
             setScore(score+10);
@@ -47,13 +72,14 @@ const Chamber = () => {
 
             }else{
                 updateFirebaseData(teamName.toLowerCase(), question, score + 10);
-                toast("Congrats! You have solved all the questions.");
+                toast.message("Congrats! You have solved all the questions.");
                 navigate("/");
             }
+            document.getElementById("answerBox").value="";
             // setCurr(questionLocal[question-1]);
         }
         else{
-            toast("Wrong answer");
+            toast.warning("Wrong answer");
         }
     }
     const updateFirebaseData = async (team, newQuestion, newScore) => {
@@ -70,7 +96,7 @@ const Chamber = () => {
                     // Find the user and update the data
                     const updatedUsers = Object.keys(users).map(key => {
                         if (users[key].teamName === team) {
-                            return { ...users[key], question: newQuestion, score: newScore };
+                            return { ...users[key], question: newQuestion, score: newScore, timestamp: formattedDate };
                         }
                         return users[key];
                     });
@@ -93,9 +119,6 @@ const Chamber = () => {
             let getUsers=await fetch('https://my-project-1-64eb2-default-rtdb.firebaseio.com/user.json',{method: 'GET',headers:{'Content-Type': 'application/json'}});
             let users=await getUsers.json();
             if(users){
-                // let request=await fetch('https://my-project-1-64eb2-default-rtdb.firebaseio.com/user.json',{method: 'POST',mode:'no-cors',headers:{'Content-Type': 'application/json'},body:JSON.stringify({
-                //     teamName:teamName,question:question,score:score
-                // })});
                 const userExists =Object.values(users).some(user => user.teamName === teamName.toLowerCase());
                 if(userExists) {
                     alert("You have already logged in!");
@@ -122,6 +145,7 @@ const Chamber = () => {
     window.onbeforeunload = function() {
         return "Dude, are you sure you want to refresh?!";
     }
+    console.log(curr);
     return (
         <div styles={{ minHeight: '100vh',display:'flex',justifyContent:'center',alignItems:'center' }}>
             <Navbar home='inactive' events='inactive' developers='inactive' about='inactive' feed='inactive' members='inactive' />
@@ -180,3 +204,22 @@ const Chamber = () => {
     );
 }
 export default Chamber;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

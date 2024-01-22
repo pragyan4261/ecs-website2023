@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
-
+import {toast} from "sonner";
 import InputControl from "../InputControl/InputControl";
 import { auth } from "../firebase";
 import styles from "./Login.module.css";
@@ -42,6 +42,7 @@ const Login = (props) => {
           setOpenLogin(false);
           setCurrentUser(auth.currentUser);
           navigate("/");
+          toast.success("Logged in successfully!");
         })
         .catch((err) => {
           setSubmitButtonDisabled(false);

@@ -1,32 +1,31 @@
+/* eslint-disable eqeqeq */
 import React from 'react'
 import { useState, useEffect } from 'react';
+import Typewriter from "typewriter-effect";
 import './Hero.css'
 
 const Hero = () => {
   var typingText = 'NIT SILCHAR';
-  const [currText, setcurrText] = useState("");
-  var typed = false;
-  function delay(millisec) {
-    return new Promise(resolve => {
-      setTimeout(() => { resolve('') }, millisec);
-    })
-  }
-  async function typing() {
-    var i = 0;
-    while (i <= typingText.length && typed == false) {
-      if (i >= typingText.length) {
-        typed = true;
-      }
-      document.querySelector('.typingText').innerHTML = typingText.substring(0, i);
-      await delay(200);
-      i++;
-    }
-  }
-  useEffect(
-    () => {
-      typing();
-    }
-    , []);
+  const [typed,setTyped]=useState(false);
+  // function delay(millisec) {
+  //   return new Promise(resolve => {
+  //     setTimeout(() => { resolve('') }, millisec);
+  //   })
+  // }
+  // useEffect(()=>{
+  //   const  typing=async() =>{
+  //     var i = 0;
+  //     while (i <= typingText.length && typed == false) {
+  //       if (i >= typingText.length) {
+  //         setTyped(true);
+  //       }
+  //       document.querySelector('.typingText').innerHTML = typingText.substring(0, i);
+  //       await delay(200);
+  //       i++;
+  //     }
+  // }
+  // typing()
+  // },[])
   return (
     <div className='h-[28rem] sm:h-[36rem] lg:h-[40rem]'>
       <div className="flex justify-center items-center flex-col">
@@ -34,7 +33,16 @@ const Hero = () => {
           <div className="h-40 lg:h-80 w-50 flex flex-col  justify-center items-center font-semibold text-xl md:text-2xl lg:text-4xl text-white">
             <div className="text-center mt-36 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">ELECTRONICS & COMMUNICATION <span className="font-bold text-yellow-200">  SOCIETY</span></div>
             <div id="hero" className="text-yellow-200 mt-3 sm:mt-7 text-xl sm:text-3xl lg:text-4xl xl:text-5xl">
-              <span className='typingText'></span><span className='blinker'>|</span>
+              <span className='typingText'>
+              <Typewriter
+                onInit={(typewriter) => {
+                    typewriter
+                        .typeString("NIT SILCHAR")
+                        .pauseFor(1000)
+                        .start();
+                }}
+            />
+                </span>
             </div>
           </div>
         </div>

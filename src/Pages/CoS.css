@@ -161,6 +161,7 @@
 
 .qcard{
     /* background-image: url('https://res.cloudinary.com/dyuggtbjl/image/upload/v1705313385/Chamber_of_secrets_titskh.svg'); */
+    width: 90%;
     background-repeat: no-repeat;
     object-fit: cover;
     overflow:hidden;

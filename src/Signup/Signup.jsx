@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-
+import {toast} from "sonner";
 import InputControl from "../InputControl/InputControl";
 import { auth } from "../firebase";
 import styles from "./Signup.module.css";
@@ -55,7 +55,8 @@ function SignUp(props) {
         } 
         else{
           // navigate("/");
-          setErrorMsg("You have successfully signed up!")
+          toast.success("You have successfully signed up!")
+          // setErrorMsg("You have successfully signed up!")
         }
       });
   };

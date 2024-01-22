@@ -11,15 +11,16 @@ const Card = (props) => {
   };
 
   return (
-    <div className="card space-y-5 w-96">
-      <h2 className='text-sm mb-3  leading-2' style={{fontFamily: 'Nosifer, sans-serif'}}>{props.question}</h2>
+    <div className="card space-y-5 ">
+      <h2 className='text-sm lg:text-lg mb-3  leading-2' style={{fontFamily: 'Quicksand, sans-serif'}}>{props.question}</h2>
       <input
         type="text"
         value={answer}
         onChange={handleInputChange}
         placeholder="Type answer"
         id="answerBox"
-        className='h-10 w-64 p-3 rounded-md outline-none text-black'
+        autoComplete='off'
+        className='h-10 w-52 md:w-96 p-3 rounded-md outline-none text-black'
       />
     </div>
   );

@@ -17,7 +17,7 @@ import Spectrum from "./Pages/Spectrum"
 import Chamber from "./Pages/CoS";
 import { auth } from "./firebase";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Toaster, toast } from 'sonner';
+import { Toaster } from 'sonner';
 
 // import Navbar
 
