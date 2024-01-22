@@ -25,7 +25,8 @@
     border-image-source:url("https://res.cloudinary.com/dyuggtbjl/image/upload/v1705099460/ecs/images_4_c1ci4r.jpg");
     border-image-repeat: round;
     border-image-slice: 30;
-    height: 35rem;
+    /* height: 35rem; */
+    width: 80%;
 }
 @keyframes starting{
     0%{
@@ -107,11 +108,21 @@
     flex-direction: column;
     align-items: start;
     justify-content: space-around;
+    text-align: left;
+}
+@media screen and (max-width: 500px) {
+    .rules h1{
+        font-size: 1.5rem;
+        
+    }
+    .rules ul li{
+        font-size: 0.8rem;
+    }
+
 }
 .nextBtn{
     background-color: #ff9900;
     color:#15003e;
-    margin-top: 1rem;
     padding:0.5rem 3rem;
     border:0 solid transparent;
     border-radius: 2rem;
@@ -127,6 +138,7 @@
     font-size: 1rem;
     font-weight: 500;
     margin-top: 2rem;
+
 }
 @keyframes nextBtn {
     0%{

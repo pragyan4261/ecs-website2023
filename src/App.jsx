@@ -23,7 +23,6 @@ import { Toaster } from 'sonner';
 
 function App() {
   const [userName, setUserName] = useState("");
-
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -76,7 +75,7 @@ function App() {
           <Route path="/notes/Eighth" element={<Notes sem='Eighth' />} />
           <Route path="/notes/:sem" component={Notes} />
           <Route path="/Spectrum" element={<Spectrum />} />
-          <Route path="/CoS" element={<Chamber />} />
+            <Route path="/CoS" element={<Chamber />} />
         </Routes>
       </BrowserRouter>
       <Toaster />

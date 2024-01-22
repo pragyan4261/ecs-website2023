@@ -9,8 +9,10 @@ import { useState, useEffect } from "react";
 import { toast } from 'sonner';
 import {db,collection,where,query,getDocs} from '../firebase';
 const Chamber = () => {
-
-
+    const [initAns,setInitAns]=useState("");
+    const [time,setTime]=useState({
+        hours:0,minutes:0,seconds:0
+      });
 //shows current Date and Time
 const currentDate = new Date();
 const formattedDate = currentDate.toLocaleDateString('en-US', {
@@ -23,7 +25,6 @@ const formattedDate = currentDate.toLocaleDateString('en-US', {
   second: 'numeric',
   hour12: true,
 });
-
     const navigate = useNavigate();
     const [question, setQuestion] = useState(1);
     const [entered,isEntered]=useState(false);
@@ -31,15 +32,18 @@ const formattedDate = currentDate.toLocaleDateString('en-US', {
     const [teamName,setteamName]=useState("");
     const [score,setScore]=useState(0);
     const [curr, setCurr] = useState(null);
-    // useEffect(()=>{
-    //     data.map((item)=>{
-    //         questionLocal.push({
-    //             question:item.question,
-    //             answer:item.answer
-    //         });
-    //     })
-    //     setCurr(questionLocal[question-1]);
-    // },[question]);
+    useEffect(()=>{
+        const now = new Date();
+    
+        // Get hours, minutes, and seconds
+          const hours = now.getHours().toString().padStart(2, '0');
+          const minutes = now.getMinutes().toString().padStart(2, '0');
+          const seconds = now.getSeconds().toString().padStart(2, '0');
+          setTime({
+            hours:hours,minutes:minutes,seconds:seconds
+          });
+    },[]);
+    
     useEffect(()=>{
         const getQuestion=async()=>{
             const callRef=collection(db,'questions');
@@ -65,7 +69,7 @@ const formattedDate = currentDate.toLocaleDateString('en-US', {
         }
         if(finalString ===curr.answer){
            toast.success("Correct answer");
-            if(question<5){
+            if(question<21){
             setQuestion(question+1);
             setScore(score+10);
             updateFirebaseData(teamName.toLowerCase(), question, score + 10);
@@ -73,9 +77,10 @@ const formattedDate = currentDate.toLocaleDateString('en-US', {
             }else{
                 updateFirebaseData(teamName.toLowerCase(), question, score + 10);
                 toast.message("Congrats! You have solved all the questions.");
-                navigate("/");
+               setTimeout(()=>toast.message("Redirecting you to home page!"),1000);
+               setTimeout(()=>navigate('/'),3000);
             }
-            document.getElementById("answerBox").value="";
+            setInitAns("");
             // setCurr(questionLocal[question-1]);
         }
         else{
@@ -154,10 +159,10 @@ const formattedDate = currentDate.toLocaleDateString('en-US', {
                 <div className='startingCardCont'>
                     <div className='startingCard'>
                         <div className='innerCont'>
-                            <p className='p1 text-lg'>
+                            <p className='p1 text-sm sm:text-lg'>
                             Whispers of the arcane, secrets entwined. Embrace the shadows, unravel the unknown. Enter the mystic realm, conquer the riddles, and rise.
                             </p>
-                            <p className='p2 text-lg'>
+                            <p className='p2 text-sm sm:text-lg'>
                             Unlock the mysteries, crack the enigma! Join the ultimate riddle-solving challenge and let your intellect shine in this thrilling competition.
                             </p>
                             <p className='rules text-lg space-y-3'>
@@ -172,14 +177,16 @@ const formattedDate = currentDate.toLocaleDateString('en-US', {
                                     <li>Not following the above the rules will lead to disqualification.</li>
                                 </ul>
                             </p>
-                            <button className='nextBtn' onClick={startClick}>NEXT</button>
+                            <div className='flex justify-center items-center'>
+                                {time.hours>=18?<button className='nextBtn' onClick={startClick}>NEXT</button>:<div className='bg-[#ffaa00] text-[#000000] p-[1rem] text-[0.7rem] sm:text-[1rem] mt-[1rem] rounded-[2rem]'>GAME HAS NOT STARTED YET</div>}
+                            </div>
                         </div>
                     </div>
                 </div>:null
             }
             {entered===false && start===true?
             <div style={{zIndex:'2',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',minHeight:'80vh'}}>
-                <form method="POST" className='flex flex-col p-[3rem] bg-[#00001165] w-[30%] h-[100%] rounded-[1rem] '>
+                <form method="POST" className='flex flex-col p-[3rem] bg-[#00001165] w-[80%] sm:w-[50%] h-[100%] rounded-[1rem] '>
                     <input type="text" placeholder="Enter your team name" value={teamName} onChange={(e)=>setteamName(e.target.value)} name="team" style={{backgroundColor:"#aaaaaa55",padding:'1rem',border:'1px solid #40ff00',borderRadius:'2rem',color:'#ffffff'}} />
                     <input type="submit" className='subBtn' value="START THE GAME" onClick={enterTheGame} />
                 </form>
@@ -188,11 +195,11 @@ const formattedDate = currentDate.toLocaleDateString('en-US', {
             {
                 start===true && entered===true?
             <div className='h-[100vh] flex flex-col items-center justify-center' style={{filter:`blur(${entered===false?'8px':'0px'})`}}>
-                <Timer />
+                {/* <Timer /> */}
                 <div className='scoreCont text-white text-2xl mt-5'>Score is : {score}</div>
                 <div className='text-white text-2xl mt-2'>Question Number : {question}</div>
-                <div className="qcard p-[3rem] rounded-[2rem] w-[60%] h-auto space-y-10 text-white">
-                    <Card question={curr.question} answer={curr.answer} />
+                <div className="qcard p-[3rem] rounded-[2rem] w-[60%] space-y-10 text-white">
+                    <Card setInit={setInitAns} init={initAns} question={curr.question} answer={curr.answer} image={curr.image} audio={curr.audio} />
                     <div styles={{ marginLeft: 'auto', marginRight: 'auto', marginTop: '1rem' , zIndex: 20}}>
                         <button className='bg-[#4444ff] text-[#ffffff] w-36 h-10 rounded-lg hover:rounded-full ' style={{ margin: '0 auto' }} onClick={checkCorrect}>Submit</button>
                     </div>

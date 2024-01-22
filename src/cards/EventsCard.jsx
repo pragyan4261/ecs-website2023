@@ -3,13 +3,13 @@ import React from 'react'
 const EventsCard = (props) => {
   const t = props.order === `flex-row` ? '-10%' : '10%';
   return (
-    <div id={props.reference} className={`flex flex-col align-center md:flex md:${props.order} bg-[#8BD6ECB2] m-[3rem] p-[2.3125rem] text-[#ffffff]`} style={{
-      borderRadius: '2.3125rem 2.4375rem 2.3125rem 2.125rem', transitionDuration: '1000ms ease'
+    <div id={props.reference} className={`flex flex-col flex-wrap justify-center align-center md:flex md:${props.order} bg-[#8BD6ECB2] m-[3rem] p-[1.5em] w-[85%%] text-[#ffffff]`} style={{
+      borderRadius: '1.5rem', transitionDuration: '1000ms ease'
     }}>
-      <img className='h-[15rem] w-[15rem] rounded-[2rem]' style={{ margin: '0 auto', objectFit: 'cover' }} src={props.photo} alt="" />
-      <div className='flex flex-col'>
-        <h1 className='text-[2rem] uppercase' style={{ marginBottom: '3rem' }}>{props.name}</h1>
-        <p className='text-[1.4rem]'>{props.desc}</p>
+      <img className='h-[13rem] w-[13rem] rounded-[1rem] ml-8 mb-3 sm:ml-2 m-[0 auto]' style={{ objectFit: 'cover' }} src={props.photo} alt="" />
+      <div className='flex flex-col w-[80%] justify-center items-center'>
+        <h1 className='text-[1.5rem] ml-10 sm:ml-0 sm:text-[2rem] uppercase mb-3' >{props.name}</h1>
+        <p className='text-sm sm:text-lg ml-10 sm:ml-0 w-[95%] sm:w-[80%] text-center leading-5'>{props.desc}</p>
       </div>
     </div >
   )
