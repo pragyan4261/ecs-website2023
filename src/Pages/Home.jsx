@@ -23,9 +23,9 @@ const Home = () => {
         <ParallaxLayer speed={0.5} className='flex flex-col justify-center z-10'> 
          <Navbar home='active' events='inactive' developers='inactive' about='inactive' feed='inactive' members='inactive' className="bg-transparent " />
             <Hero />
-            <div className='cardHome p-[1rem] bg-[#ffffff11]'>
+            {/* <div className='cardHome p-[1rem] bg-[#ffffff11]'>
               <Link to='/Spectrum' className='z-50'>Checkout our official Spectrum 10.0 page</Link>
-            </div>
+            </div> */}
         </ParallaxLayer>
         <ParallaxLayer offset={0.99} speed={0.6}  factor={3} className=' pt-48' id='bgImg' style={{ backgroundImage:`  linear-gradient(#060027, #0600276d,#000000),url(${bgimg})`,backgroundSize:"cover",top:"10px",backgroundPosition:"center"}} >
           <ParallaxLayer offset={0.5} speed={0.6} 
