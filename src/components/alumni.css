@@ -1,0 +1,34 @@
+  .alumniSwiper {
+    padding-top: 10vh;
+  }
+
+  .alumniSwiper .swiper-slide {
+    filter: blur(3px);
+    transition: ease 500ms;
+    margin: 0 auto;
+    margin-top: 0%;
+    scale: 0.5;
+    margin-bottom: 0;
+  }
+
+  .alumniSwiper .swiper-slide-active+.swiper-slide {
+    filter: blur(0px);
+    scale: 1.5;
+    transition: ease 500ms;
+    margin: 0 auto;
+    margin-top: 0;
+  }
+
+  .alumniSwiper .swiper-slide-active+.swiper-slide img {
+    filter: blur(0px);
+    scale: 1;
+    transition: ease 500ms;
+    margin: 0 auto;
+    margin-top: 0;
+  }
+
+  .alumniSwiper .swiper-slide-active+.swiper-slide div div {
+    background-color: #bcdeec;
+    z-index: 0;
+     @apply shadow-md shadow-black;
+  }

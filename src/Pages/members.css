@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.container{
+    background-image: url('./Desktop.png') !important;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-attachment: fixed;
+    
+}
+
+.senior, .junior{
+    font-family: "Oswald", sans-serif;
+}

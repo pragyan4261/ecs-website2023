@@ -1,0 +1,21 @@
+.cardName {
+    position: relative;
+    top: 30%;
+    transition-duration: 1s;
+}
+
+.card:hover .cardName {
+    top: -10%;
+    transition-duration: 1s;
+}
+
+.content {
+    opacity: 0;
+    padding: 2rem;
+    transition-duration: 1s;
+}
+
+.card:hover .content {
+    opacity: 1;
+    transition-duration: 1s;
+}

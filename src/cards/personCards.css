@@ -1,0 +1,135 @@
+.card {
+  margin-top: 20px !important;
+  margin: 20px !important;
+  position: relative !important;
+  width: 255px !important; /* Adjust size as needed */
+  height: 315px !important; /* Adjust size as needed */
+  background-image: url('./cbg.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  border: none !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+.card-image {
+  position: absolute !important;
+  top: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 129px !important;
+  height: 129px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  border: 3px solid #fff !important;
+  transition: transform 0.5s ease, box-shadow 0.5s ease !important;
+}
+
+.card:hover .card-image {
+  transform: translateX(-50%) scale(1.1) !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) !important;
+}
+
+.card-heading {
+  width: 203px !important;
+  text-align: center !important;
+  position: absolute !important;
+  top: 169px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 1.5em !important;
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  transition: color 0.3s ease !important;
+}
+
+.card:hover .card-heading {
+  color: #0fd967 !important;
+}
+
+.card-subheading {
+  width: 203px !important;
+  position: absolute !important;
+  top: 208px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 1.2em !important;
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  transition: color 0.3s ease !important;
+}
+
+.card:hover .card-subheading {
+  color: #0fd967 !important;
+}
+
+.card-links {
+  position: absolute !important;
+  bottom: 35px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  gap: 20px !important;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 0.5s;
+}
+
+.card-link {
+  color: white !important;
+  text-decoration: none !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  padding: 8px 12px !important;
+  border-radius: 5px !important;
+  transition: background-color 0.3s ease, transform 0.3s ease !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-link img {
+  fill: white !important;
+  margin-right: 8px;
+  transition: transform 0.3s ease !important;
+}
+
+.card-link:hover {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  transform: translateY(-3px) !important;
+}
+
+.card-link:hover img {
+  transform: scale(1.2);
+}
+
+/* Add a subtle floating animation to the card */
+@keyframes float {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+}
+
+.card {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+  }
+}
+
+/* Add a glowing effect around the card on hover */
+.card:hover {
+  box-shadow: 0 0 20px rgba(14, 192, 237, 0.7), 0 0 30px rgba(15, 217, 103, 0.5) !important;
+}

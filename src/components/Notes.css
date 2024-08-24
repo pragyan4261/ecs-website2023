@@ -1,0 +1,38 @@
+.lustre {
+    height: 20rem;
+    width: 3rem;
+    background-color: #ffffff4d;
+    position: relative;
+    left: -50%;
+    animation-name: none;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.subHolder {
+    transition-duration: 0.5s;
+    box-shadow: 0 0 1rem #1e1e1f;
+    cursor: pointer;
+    transform: translateY(0%);
+}
+
+.subHolder:hover .lustre {
+    animation-name: lustre;
+}
+
+.subHolder:hover {
+    scale: 1.01;
+    transition-duration: 0.5s;
+    box-shadow: 0 0 2rem #1e1e1f;
+    transform: translateY(-1%);
+}
+
+@keyframes lustre {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
